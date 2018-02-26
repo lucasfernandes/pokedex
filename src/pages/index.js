@@ -1,6 +1,10 @@
 /* Core */
 import React from 'react';
 
+/* Redux */
+import { Provider } from 'react-redux';
+import store from '../store';
+
 /* Presentational */
 import Header from './components/Header';
 import './styles/app.css';
@@ -9,11 +13,11 @@ import './styles/app.css';
 console.tron.log('Test Log');
 
 const App = () => (
-  <div className="container">
-    <Header />
-    {/* POKEDEX
-    <span className="text">TESTANDO</span> */}
-  </div>
+  <Provider store={store}>
+    <div className="container">
+      <Header />
+    </div>
+  </Provider>
 );
 
 export default App;
