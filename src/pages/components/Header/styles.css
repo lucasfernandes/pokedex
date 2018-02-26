@@ -1,0 +1,50 @@
+.container {
+  display: flex;
+  flex: 1;
+  height: 160px;
+  flex-direction: column;
+  justify-content: flex-end;
+  background-color: #FD2017; }
+
+.headerContainer {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px; }
+
+.blackSlice {
+  background-color: #3D3D40;
+  display: flex;
+  height: 11px;
+  justify-content: flex-end;
+  border-top: 1.5px solid #000;
+  border-bottom: 2px solid #000; }
+
+.pokeball {
+  align-self: center;
+  position: relative;
+  width: 126px height 126px; }
+
+.pokeball img {
+  width: 126px;
+  height: 126px;
+  position: absolute;
+  top: -75px;
+  left: -63px; }
+
+@font-face {
+  font-family: 'PokemonSolid';
+  src: local("PokemonSolid"), url(../../../assets/fonts/PokemonSolid.ttf) format("truetype");
+  font-style: normal;
+  font-weight: normal; }
+
+.title {
+  font-family: 'PokemonSolid';
+  font-size: 48px;
+  color: #FFF;
+  align-self: center;
+  height: 50px;
+  margin-bottom: 65px;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 5px #171719; }

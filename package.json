@@ -25,8 +25,8 @@
     "reduxsauce": "^0.7.0"
   },
   "scripts": {
-    "build-css": "node-sass-chokidar --include-path ./src/styles --include-path ./node_modules src/styles/ -o src/styles/",
-    "watch-css": "npm run build-css && node-sass-chokidar --include-path ./src/styles --include-path ./node_modules src/styles/ -o src/styles --watch --recursive",
+    "build-css": "node-sass-chokidar --include-path ./src/pages --include-path --include-path ./node_modules src/pages/ -o src/pages/",
+    "watch-css": "npm run build-css && node-sass-chokidar --include-path ./src/pages --include-path ./node_modules src/pages/ -o src/pages --watch --recursive",
     "start-js": "react-scripts start",
     "start": "npm-run-all -p watch-css start-js",
     "build": "npm run build-css && react-scripts build",
