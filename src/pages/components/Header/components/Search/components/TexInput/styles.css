@@ -1,0 +1,13 @@
+.textInput {
+  display: flex;
+  flex: 1;
+  color: #3D3D40;
+  border: 0;
+  border-radius: 5px;
+  padding: 5px;
+  padding-left: 10px;
+  width: 200px;
+  font-size: 14px; }
+
+.error {
+  color: red; }

@@ -12,8 +12,14 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   display: block;
 }
 
+html {
+  background: linear-gradient(rgb(224, 222, 222), rgb(243, 147, 147));
+  min-height: 100%
+}
+
 body {
   line-height: 1;
+  
 }
 
 ol, ul {
@@ -34,13 +40,16 @@ table {
   border-spacing: 0;
 }
 
-
-.container {
-  color: red;
-  margin: 0;
+@font-face {
+  font-family: 'PokemonSolid';
+  src: local('PokemonSolid'), url(../../assets/fonts/PokemonSolid.ttf) format('truetype');
+  font-style: normal;
+  font-weight: normal;
 }
 
-.text {
-  font-size: 30px;
-  color: purple;
+.container {
+  display: flex;
+  flex: 1;
+  margin: 10px;
+  flex-direction: column;
 }

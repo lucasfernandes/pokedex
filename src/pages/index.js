@@ -7,6 +7,7 @@ import store from '../store';
 
 /* Presentational */
 import Header from './components/Header';
+import Menu from './components/Menu';
 import './styles/app.css';
 // import '../styles/app.scss';
 
@@ -16,6 +17,7 @@ const App = () => (
   <Provider store={store}>
     <div className="container">
       <Header />
+      <Menu />
     </div>
   </Provider>
 );

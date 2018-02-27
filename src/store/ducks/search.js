@@ -3,7 +3,7 @@ import { createActions, createReducer } from 'reduxsauce';
 /* Types & Creators */
 
 const { Types, Creators } = createActions({
-  searchRequest: ['name', 'number'],
+  searchRequest: ['pokemon'],
   searchSuccess: ['data'],
   searchFailure: null,
 });

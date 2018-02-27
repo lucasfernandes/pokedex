@@ -1,0 +1,22 @@
+.searchContainer {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  position: absolute;
+  top: 85px;
+  right: 30px;
+  height: 45px; }
+  .searchContainer .searchButton {
+    position: absolute;
+    top: 13px;
+    right: 10px; }
+  .searchContainer .loading {
+    position: absolute;
+    top: 3px;
+    right: 3px; }
+  .searchContainer .notfound {
+    position: absolute;
+    bottom: -16px;
+    right: 20px;
+    color: white;
+    font-size: 12px; }
