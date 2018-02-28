@@ -23,6 +23,7 @@ const INITIAL_STATE = {
 export const request = state => ({
   ...state,
   loading: true,
+  error: false,
 });
 
 export const success = (state, action) => ({

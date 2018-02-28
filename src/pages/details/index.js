@@ -8,6 +8,7 @@ import { connect } from 'react-redux';
 /* Presentational */
 import * as Icons from 'react-icons/lib/go';
 import PokedexButton from './components/PokedexButton';
+import Infos from './components/Infos';
 import './styles.css';
 
 class Details extends Component {
@@ -28,7 +29,7 @@ class Details extends Component {
 
   render() {
     const {
-      name, height, weight, sprites,
+      name, height, weight, sprites, stats, types, abilities,
     } = this.props.search.data;
 
     return (
@@ -57,7 +58,7 @@ class Details extends Component {
                 {name}
               </div>
               <div className="avatarHW">
-                height: {height} / weight: {weight}
+                H: {height}m / W: {weight}kg
               </div>
             </div>
           </div>
@@ -65,6 +66,9 @@ class Details extends Component {
             <div className="buttonAligner">
               <PokedexButton />
             </div>
+          </div>
+          <div className="bottomContainer">
+            <Infos types={types} abilities={abilities} />
           </div>
         </div>
       </div>

@@ -3,23 +3,23 @@
   flex: 1;
   justify-content: center;
   align-items: center;
-  margin-top: 100px; }
+  margin-top: 40px; }
   .detailsContainer .detailsCard {
     display: flex;
     flex: 1;
     flex-direction: column;
     max-width: 595px;
-    min-height: 740px;
     background-color: #FFF;
     border-radius: 20px;
-    filter: drop-shadow(0 5px 10px #252522); }
+    filter: drop-shadow(0 5px 10px #252522);
+    padding-bottom: 30px; }
     .detailsContainer .detailsCard .topCard {
       display: flex;
       flex: 1;
       background-color: #3D3D40;
       border-top-left-radius: 20px;
       border-top-right-radius: 20px;
-      max-height: 488px;
+      height: 450px;
       flex-direction: column; }
       .detailsContainer .detailsCard .topCard .avatarBox {
         display: flex;
@@ -29,8 +29,7 @@
         align-items: center;
         padding-left: 16px;
         padding-right: 16px;
-        margin-top: 47px;
-        margin-bottom: -40px; }
+        margin-top: 117px; }
         .detailsContainer .detailsCard .topCard .avatarBox .avatar-ball {
           width: 222px;
           height: 222px;
@@ -60,7 +59,8 @@
         display: flex;
         flex: 1;
         flex-direction: column;
-        align-items: center; }
+        align-items: center;
+        margin-top: 17px; }
         .detailsContainer .detailsCard .topCard .avatarInfo .avatarName {
           font-family: 'Helvetica Neue Bold';
           font-size: 28px;
@@ -70,7 +70,7 @@
           font-family: 'Helvetica Neue Bold';
           font-size: 17px;
           color: #A49C9C;
-          line-height: 35px; }
+          line-height: 32px; }
     .detailsContainer .detailsCard .buttonContainer {
       height: 0; }
       .detailsContainer .detailsCard .buttonContainer .buttonAligner {
@@ -79,3 +79,9 @@
         justify-content: center;
         align-items: flex-start;
         position: relative; }
+    .detailsContainer .detailsCard .bottomContainer {
+      margin-top: 20px;
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      height: auto; }

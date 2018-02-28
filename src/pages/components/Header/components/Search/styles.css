@@ -16,7 +16,8 @@
     right: 3px; }
   .searchContainer .notfound {
     position: absolute;
-    bottom: -16px;
-    right: 20px;
+    bottom: 55px;
+    left: 0;
     color: white;
-    font-size: 12px; }
+    font-size: 14px;
+    font-family: 'Helvetica Neue Bold'; }

@@ -1,0 +1,109 @@
+.infosContainer {
+  flex: 1;
+  font-family: 'Helvetica Neue Bold'; }
+  .infosContainer .infosBox {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center; }
+    .infosContainer .infosBox .first-box-info {
+      display: flex;
+      flex: 1;
+      height: 40px;
+      margin-top: 60px;
+      font-size: 20px;
+      font-weight: bold;
+      color: #8888B0;
+      font-family: 'Helvetica Neue Bold'; }
+    .infosContainer .infosBox .seccond-box-info {
+      display: flex;
+      flex: 1;
+      align-items: center;
+      height: 60px;
+      font-size: 20px;
+      font-weight: bold;
+      color: #5B3F3F;
+      font-family: 'Helvetica Neue Bold';
+      background-color: #D8D8D8;
+      padding-right: 20px;
+      padding-left: 20px;
+      border: 1px solid #979797; }
+    .infosContainer .infosBox .third-box-info {
+      display: flex;
+      flex: 1;
+      flex-direction: row;
+      justify-content: space-between;
+      width: 60%;
+      margin-top: 25px;
+      height: auto; }
+    .infosContainer .infosBox .box-row {
+      flex: 1;
+      justify-content: center;
+      align-items: center; }
+    .infosContainer .infosBox .divider {
+      margin: 12px; }
+    .infosContainer .infosBox .box-row-title {
+      display: flex;
+      flex: 1;
+      justify-content: center;
+      align-items: center;
+      color: #525257;
+      height: 38px;
+      font-family: 'Helvetica Neue Bold';
+      font-size: 18px;
+      border-bottom: 2px solid #A6A6B7;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px; }
+    .infosContainer .infosBox .box-row-data {
+      flex: 1;
+      justify-content: center;
+      padding: 15px; }
+      .infosContainer .infosBox .box-row-data .item-box-data {
+        display: flex;
+        flex: 1;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+        margin: 10px;
+        font-size: 14px;
+        color: #FFF;
+        background-color: #757575;
+        filter: drop-shadow(3px 2px 3px #775757); }
+      .infosContainer .infosBox .box-row-data .item-box-data:hover {
+        transform: scale(1.1); }
+      .infosContainer .infosBox .box-row-data .bug {
+        background-color: #739F3F; }
+      .infosContainer .infosBox .box-row-data .dragon {
+        background-color: #F06D58; }
+      .infosContainer .infosBox .box-row-data .fairy {
+        background-color: #FCB9E7; }
+      .infosContainer .infosBox .box-row-data .fire {
+        background-color: #FD7C24; }
+      .infosContainer .infosBox .box-row-data .ghost {
+        background-color: #7C62A3; }
+      .infosContainer .infosBox .box-row-data .ground {
+        background-color: #F7DF3F; }
+      .infosContainer .infosBox .box-row-data .normal {
+        background-color: #A3ABB0; }
+      .infosContainer .infosBox .box-row-data .psychic {
+        background-color: #F365B9; }
+      .infosContainer .infosBox .box-row-data .steel {
+        background-color: #9DB8B8; }
+      .infosContainer .infosBox .box-row-data .dark {
+        background-color: #71716F; }
+      .infosContainer .infosBox .box-row-data .electric {
+        background-color: #EDD436; }
+      .infosContainer .infosBox .box-row-data .fighting {
+        background-color: #D56623; }
+      .infosContainer .infosBox .box-row-data .flying {
+        background-color: #3CC5EF; }
+      .infosContainer .infosBox .box-row-data .grass {
+        background-color: #9BCD4F; }
+      .infosContainer .infosBox .box-row-data .ice {
+        background-color: #50C5E7; }
+      .infosContainer .infosBox .box-row-data .poison {
+        background-color: #B980CA; }
+      .infosContainer .infosBox .box-row-data .rock {
+        background-color: #A28D21; }
+      .infosContainer .infosBox .box-row-data .water {
+        background-color: #4592C6; }
