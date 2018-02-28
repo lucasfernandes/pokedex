@@ -36,7 +36,7 @@ class Details extends Component {
   )
 
   renderLoading = () => (
-    <div styles="display:flex; flex: 1; selfAlign: center;">TA CARREGANDO CARAI!</div>
+    <div styles="display:flex; flex: 1; selfAlign: center;">Loading</div>
   );
 
   renderDetails = data => (
