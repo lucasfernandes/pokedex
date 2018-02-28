@@ -18,7 +18,6 @@
   }
 
   .pokeball {
-    // align-self: center;
     position: relative;
     width: 126px
     height 126px;
@@ -28,10 +27,8 @@
     height: 126px;
     position: absolute;
     top: -75px;
-    // left: -63px;
     left: 40px;
     filter: drop-shadow(1px 2px 0.2rem #19191a);
-    // filter: drop-shadow(0 0 0.75rem crimson);
   }
 
   .title {
@@ -39,7 +36,6 @@
     font-size: 48px;
     color: #FFF;
     margin-left: 40px;
-    // align-self: center;
     height: 50px;
     margin-bottom: 65px;
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 5px #171719;

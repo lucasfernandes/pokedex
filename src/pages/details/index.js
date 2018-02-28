@@ -14,6 +14,7 @@ import './styles.css';
 class Details extends Component {
   static propTypes = {
     search: PropTypes.shape({
+      loading: PropTypes.bool,
       data: PropTypes.shape({
         name: PropTypes.string,
         height: PropTypes.string,
@@ -25,53 +26,66 @@ class Details extends Component {
     }).isRequired,
   };
 
-  state = {}
+  state = {
+  }
 
-  render() {
-    const {
-      name, height, weight, sprites, stats, types, abilities,
-    } = this.props.search.data;
+  renderContent = (loading, data) => (
+    loading
+      ? this.renderLoading()
+      : this.renderDetails(data)
+  )
 
-    return (
-      <div className="detailsContainer">
-        <div className="detailsCard">
-          <div className="topCard">
-            <div className="avatarBox">
-              <div className="iconChevron" title="Previous Level">
-                <Icons.GoChevronLeft size={60} color="#BABABA" />
-                <div>XuxaSauro</div>
-              </div>
-              <div className="avatar-ball">
-                <img
-                  className="avatar-img"
-                  src={sprites.front_default}
-                  alt=""
-                />
-              </div>
-              <div className="iconChevron" title="Next Level">
-                <Icons.GoChevronRight size={60} color="#BABABA" />
-                <div>Charmeleon</div>
-              </div>
+  renderLoading = () => (
+    <div styles="display:flex; flex: 1; selfAlign: center;">TA CARREGANDO CARAI!</div>
+  );
+
+  renderDetails = data => (
+    <div className="detailsContainer">
+      <div className="detailsCard">
+        <div className="topCard">
+          <div className="avatarBox">
+            <div className="iconChevron" title="Previous Level">
+              <Icons.GoChevronLeft size={60} color="#BABABA" />
+              <div>XuxaSauro</div>
             </div>
-            <div className="avatarInfo">
-              <div className="avatarName">
-                {name}
-              </div>
-              <div className="avatarHW">
-                H: {height}m / W: {weight}kg
-              </div>
+            <div className="avatar-ball">
+              <img
+                className="avatar-img"
+                src={data.sprites.front_default}
+                alt=""
+              />
+            </div>
+            <div className="iconChevron" title="Next Level">
+              <Icons.GoChevronRight size={60} color="#BABABA" />
+              <div>Charmeleon</div>
             </div>
           </div>
-          <div className="buttonContainer">
-            <div className="buttonAligner">
-              <PokedexButton />
+          <div className="avatarInfo">
+            <div className="avatarName">
+              {data.name}
             </div>
-          </div>
-          <div className="bottomContainer">
-            <Infos types={types} abilities={abilities} />
+            <div className="avatarHW">
+              H: {data.height}m / W: {data.weight}kg
+            </div>
           </div>
         </div>
+        <div className="buttonContainer">
+          <div className="buttonAligner">
+            <PokedexButton />
+          </div>
+        </div>
+        <div className="bottomContainer">
+          <Infos stats={data.stats} types={data.types} abilities={data.abilities} />
+        </div>
       </div>
+    </div>
+  )
+
+  render() {
+    const { loading, data } = this.props.search;
+
+    return (
+      this.renderContent(loading, data)
     );
   }
 }

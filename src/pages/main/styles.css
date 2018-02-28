@@ -11,7 +11,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   display: block; }
 
 html {
-  background: linear-gradient(#e0dede, #f39393);
+  background: radial-gradient(#e0dede, #f39393);
   min-height: 100%; }
 
 body {
@@ -40,6 +40,12 @@ table {
 @font-face {
   font-family: 'Helvetica Neue Bold';
   src: local("helvetica-neue-bold"), url("../../assets/fonts/Helvetica Neue Bold.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal; }
+
+@font-face {
+  font-family: 'helvetica-neue';
+  src: local("helvetica-neue"), url(../../assets/fonts/helvetica-neue.ttf) format("truetype");
   font-style: normal;
   font-weight: normal; }
 

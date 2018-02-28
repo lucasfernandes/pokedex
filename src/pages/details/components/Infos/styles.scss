@@ -1,6 +1,6 @@
 .infosContainer {
   flex: 1;
-  font-family: 'Helvetica Neue Bold';
+  font-family: 'helvetica-neue';
 
   .infosBox {
     display: flex;
@@ -9,32 +9,6 @@
     align-items: center;
 
     .first-box-info {
-      display: flex;
-      flex: 1;
-      height: 40px;
-      margin-top: 60px;
-      font-size: 20px;
-      font-weight: bold;
-      color: #8888B0;
-      font-family: 'Helvetica Neue Bold';
-    }
-
-    .seccond-box-info {
-      display: flex;
-      flex: 1;
-      align-items: center;
-      height: 60px;
-      font-size: 20px;
-      font-weight: bold;
-      color: #5B3F3F;
-      font-family: 'Helvetica Neue Bold';
-      background-color: #D8D8D8;
-      padding-right: 20px;
-      padding-left: 20px;
-      border: 1px solid #979797;
-    }
-
-    .third-box-info {
       display: flex;
       flex: 1;
       flex-direction: row;
@@ -53,6 +27,7 @@
     .divider {
       margin: 12px;
     }
+
 
     .box-row-title {
       display: flex;
@@ -80,11 +55,21 @@
         justify-content: center;
         padding: 10px;
         margin: 10px;
+        font-family: 'Helvetica Neue Bold';
         font-size: 14px;
         color: #FFF;
         background-color: rgb(117, 117, 117);
         filter: drop-shadow(3px 2px 3px rgb(119, 87, 87));
       }
+
+      .item-box-data-ability {
+        background-color: transparent;
+        font-family: 'helvetica-neue';
+        font-size: 16px;
+        color: gray;
+        filter: drop-shadow(0px 0px 0px rgb(119, 87, 87));
+      }
+      
 
       .item-box-data:hover {
         transform: scale(1.1);
@@ -162,5 +147,62 @@
         background-color: #4592C6;
       }
     }
+
+    .statsContainer {
+      display: flex;
+      flex: 1;
+      flex-direction: row;
+      width: 35%;
+      margin-top: 10px;
+    }
+    
+    .stats {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      padding: 0.25px;
+      line-height: 25px;
+    }
+    
+    .statsLeft {
+      align-items: flex-end;
+    }
+
+    .stats-item-left {
+      text-align: right;
+    }
+
+    .stats-item {
+      color: white;
+      border: 0.5px solid #FFF;
+      width: 100%;
+      padding: 3px;
+      padding-right: 5px;
+      font-size: 16px;
+      background-color: rgb(168, 166, 168);
+    }
+
+    
+    .stats-item-left:first-child {
+      border-top-left-radius: 10px;
+    }
+    
+    .stats-item-left:last-child {
+      border-bottom-left-radius: 10px;
+    }
+    
+    .stats-right {
+      padding-right: 0;
+      padding-left: 5px;
+    }
+
+    .stats-right:first-child {
+      border-top-right-radius: 10px;
+    }
+
+    .stats-right:last-child {
+      border-bottom-right-radius: 10px;
+    }
+
   }
 }

@@ -33,8 +33,8 @@ export const success = (state, action) => ({
   error: false,
 });
 
-export const failure = () => ({
-  data: [],
+export const failure = state => ({
+  ...state,
   loading: false,
   error: true,
 });
