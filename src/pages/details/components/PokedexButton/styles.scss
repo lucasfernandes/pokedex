@@ -1,0 +1,20 @@
+.pokedexButtonContainer {
+  display: flex;
+  flex: 1;
+  position: absolute;
+  top: -38px;
+  width: 243px;
+  height: 71px;
+  border-radius: 22px;
+  background-color: #FFF;
+  filter: drop-shadow(1px 5px 2px #8F8F8F);
+  align-items: center;
+  justify-content: center;
+}
+
+.pokedexButtonContainer:hover {
+  -webkit-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  transform: scale(1.05);
+  filter: drop-shadow(1px 5px 7px #8F8F8F);
+}

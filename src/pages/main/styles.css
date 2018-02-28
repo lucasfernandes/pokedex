@@ -37,6 +37,12 @@ table {
   font-style: normal;
   font-weight: normal; }
 
+@font-face {
+  font-family: 'Helvetica Neue Bold';
+  src: local("helvetica-neue-bold"), url("../../assets/fonts/Helvetica Neue Bold.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal; }
+
 .container {
   display: flex;
   flex: 1;

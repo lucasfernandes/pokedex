@@ -1,0 +1,110 @@
+.detailsContainer {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+  
+  .detailsCard {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    max-width: 595px;
+    min-height: 740px;
+    background-color: #FFF;
+    border-radius: 20px;
+    filter: drop-shadow(0 5px 10px #252522);    
+    .topCard {
+      display: flex;
+      flex: 1;
+      background-color: #3D3D40;
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+      max-height: 488px;
+      flex-direction: column;
+
+      .avatarBox {
+        display: flex;
+        flex: 2;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding-left: 16px;
+        padding-right: 16px;
+        margin-top: 47px;
+        margin-bottom: -40px;
+
+        .avatar-ball {
+          width: 222px;
+          height: 222px;
+          border-radius: 116px;
+          background-color: #D77474;
+          border: 6px solid #DCD2D2;
+        }
+        
+        .avatar-img {
+          border-radius: 50%;
+          width: 222px;
+          height: 222px; 
+          object-fit: fit;
+        }
+
+        .iconChevron {
+          display: flex;
+          flex-wrap: wrap;
+          flex: 1;
+          flex-direction: column;
+          align-items: center;
+          // width: 150px;
+        }
+
+        .iconChevron:hover {
+          filter: drop-shadow(1px 5px 7px #8F8F8F);
+          transform: scale(1.1);
+        }
+
+        .iconChevron div {
+          font-family: 'Helvetica Neue Bold';
+          font-size: 14px;
+          color: #FFF;
+          text-transform:capitalize;
+        }
+
+      }
+
+      .avatarInfo {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        align-items: center;
+        
+        .avatarName {
+          font-family: 'Helvetica Neue Bold';
+          font-size: 28px;
+          color: #FFF;
+          text-transform:capitalize;
+        }
+
+        .avatarHW {
+          font-family: 'Helvetica Neue Bold';
+          font-size: 17px;
+          color: #A49C9C;
+          line-height: 35px;
+        }
+      }
+    }
+
+    .buttonContainer {
+      height: 0;
+      
+      .buttonAligner {
+        display: flex;
+        flex: 1;
+        justify-content: center;
+        align-items: flex-start;
+        position: relative;
+      }
+    }
+  }
+
+}
