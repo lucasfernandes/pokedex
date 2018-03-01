@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 /* Redux */
 import { connect } from 'react-redux';
 import DetailsCardActions from 'store/ducks/detailsCard';
+import AddPokemondActions from 'store/ducks/addPokemon';
 
 /* Presentational */
 import * as Icons from 'react-icons/lib/go';
@@ -25,6 +26,8 @@ class Details extends Component {
         }),
       }),
     }).isRequired,
+    addPokemonRequest: PropTypes.func.isRequired,
+    detailsCardClose: PropTypes.func.isRequired,
   };
 
   state = {
@@ -79,7 +82,7 @@ class Details extends Component {
         </div>
         <div className="buttonContainer">
           <div className="buttonAligner">
-            <PokedexButton />
+            <PokedexButton onClick={() => this.props.addPokemonRequest(data.id, data.name, false)} />
           </div>
         </div>
         <div className="bottomContainer">
@@ -104,6 +107,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   detailsCardClose: () => dispatch(DetailsCardActions.detailsCardClose()),
+  addPokemonRequest: (id, name, favorite) =>
+    dispatch(AddPokemondActions.addPokemonRequest(id, name, favorite)),
 });
 
 

@@ -3,9 +3,9 @@ import { createActions, createReducer } from 'reduxsauce';
 /* Types & Creators */
 
 const { Types, Creators } = createActions({
-  searchRequest: ['pokemon'],
-  searchSuccess: ['data', 'pokedex'],
-  searchFailure: null,
+  addPokemonRequest: ['id', 'name', 'favorite'],
+  addPokemonSuccess: null,
+  addPokemonFailure: null,
 });
 
 export { Types };
@@ -13,10 +13,8 @@ export default Creators;
 
 /* Initial State */
 const INITIAL_STATE = {
-  data: [],
   loading: false,
   error: false,
-  pokedex: false,
 };
 
 /* Reducers */
@@ -27,12 +25,10 @@ export const request = state => ({
   error: false,
 });
 
-export const success = (state, action) => ({
+export const success = state => ({
   ...state,
-  data: action.data,
   loading: false,
   error: false,
-  pokedex: action.pokedex,
 });
 
 export const failure = state => ({
@@ -42,7 +38,7 @@ export const failure = state => ({
 });
 
 export const reducer = createReducer(INITIAL_STATE, {
-  [Types.SEARCH_REQUEST]: request,
-  [Types.SEARCH_SUCCESS]: success,
-  [Types.SEARCH_FAILURE]: failure,
+  [Types.ADD_POKEMON_REQUEST]: request,
+  [Types.ADD_POKEMON_SUCCESS]: success,
+  [Types.ADD_POKEMON_FAILURE]: failure,
 });
