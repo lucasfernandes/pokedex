@@ -1,0 +1,33 @@
+.listContainer {
+  display: flex;
+  flex: 1;
+  // border: 1px solid blue;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 80px;  
+
+  .listTitle {
+    color: #3D3D40;
+    font-size: 30px;
+    font-family: 'Helvetica Neue Bold';
+    padding-bottom: 8px;
+    border-bottom: 7px solid #3D3D40;
+  }
+
+  .listItemsContainer {
+    display: flex;
+    flex: 1;
+    // justify-content: space-around;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    // border: 1px solid red;
+    margin-top: 70px;
+  }
+
+  .listItemsContainer .list-aligner {
+    margin-bottom: 43px;
+    margin-left: 43px;
+  }
+}

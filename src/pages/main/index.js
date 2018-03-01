@@ -8,6 +8,7 @@ import { connect } from 'react-redux';
 /* Presentational */
 import Header from 'pages/components/Header';
 import Details from 'pages/details';
+import List from 'pages/list';
 import './styles.css';
 
 const renderDetails = (data, open) => (
@@ -17,6 +18,7 @@ const renderDetails = (data, open) => (
 const Main = ({ search, open }) => (
   <div className="container">
     <Header />
+    <List />
     {renderDetails(search, open)}
   </div>
 );

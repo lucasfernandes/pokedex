@@ -1,0 +1,42 @@
+.listItemContainer {
+  width: 169px;
+  height: 225px;
+  background-color: #BAB5B5;
+  background: radial-gradient(#e6e2e2, rgba(186, 181, 181, 0.726), rgba(186, 181, 181, 0.726));
+  border-radius: 6px;
+  filter: drop-shadow(0px 3px 2px #6c6c6d); }
+  .listItemContainer .list-item-title {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Helvetica Neue Bold';
+    font-size: 20px;
+    color: #FFF;
+    padding-top: 20px; }
+  .listItemContainer .list-item-image {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 10px; }
+  .listItemContainer .list-item-added {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    height: 46px; }
+    .listItemContainer .list-item-added .poke-added {
+      width: 25px;
+      height: 25px;
+      border-radius: 50%; }
+    .listItemContainer .list-item-added .poke-added:hover {
+      transform: scale(1.2);
+      filter: drop-shadow(0px 3px 2px #6c6c6d); }
+    .listItemContainer .list-item-added .item-list-poke-added {
+      background-color: #f09d9d; }
+
+.listItemContainer:hover {
+  transform: scale(1.2); }
