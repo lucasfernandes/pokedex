@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 
 /* Redux */
 import { connect } from 'react-redux';
+import DetailsCardActions from 'store/ducks/detailsCard';
 
 /* Presentational */
 import * as Icons from 'react-icons/lib/go';
@@ -29,6 +30,10 @@ class Details extends Component {
   state = {
   }
 
+  closeDetails = () => (
+    this.props.detailsCardClose()
+  );
+
   renderContent = (loading, data) => (
     loading
       ? this.renderLoading()
@@ -43,6 +48,9 @@ class Details extends Component {
     <div className="detailsContainer">
       <div className="detailsCard">
         <div className="topCard">
+          <div className="closeCard">
+            <Icons.GoX size={25} color="#FFF" onClick={() => this.closeDetails()} />
+          </div>
           <div className="avatarBox">
             <div className="iconChevron" title="Previous Level">
               <Icons.GoChevronLeft size={60} color="#BABABA" />
@@ -94,5 +102,9 @@ const mapStateToProps = state => ({
   search: state.search,
 });
 
+const mapDispatchToProps = dispatch => ({
+  detailsCardClose: () => dispatch(DetailsCardActions.detailsCardClose()),
+});
 
-export default connect(mapStateToProps)(Details);
+
+export default connect(mapStateToProps, mapDispatchToProps)(Details);

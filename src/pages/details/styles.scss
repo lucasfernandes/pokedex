@@ -1,11 +1,20 @@
+// body:after {
+//   content: "";
+//   display: block;
+//   position: fixed; /* could also be absolute */ 
+//   top: 0;
+//   left: 0;
+//   height: 100%;
+//   width: 100%;
+//   z-index: 10;
+//   background-color: rgba(0,0,0,0.5);
+// }
 .detailsContainer {
   display: flex;
   flex: 1;
   justify-content: center;
   align-items: center;
   margin-top: -80px;
-  // margin-top: 20px;
-  position: relative;
   
   .detailsCard {
     display: flex;
@@ -16,6 +25,7 @@
     border-radius: 20px;
     filter: drop-shadow(0 5px 10px #252522);    
     padding-bottom: 30px;
+    z-index: 20;
 
     .topCard {
       display: flex;
@@ -25,6 +35,23 @@
       border-top-right-radius: 20px;
       height: 450px;
       flex-direction: column;
+      position: relative;
+
+      .closeCard {
+        border: 1px solid #252522;
+        border-radius: 50%;
+        padding: 5px;
+        background-color: #252522;
+        position: absolute;
+        top: 25px;
+        right: 30px;
+        filter: drop-shadow(0 5px 10px #252522);    
+      }
+
+      .closeCard:hover {
+        transform: scale(1.1);
+        cursor: hand;
+      }
 
       .avatarBox {
         display: flex;
@@ -70,7 +97,6 @@
           color: #FFF;
           text-transform:capitalize;
         }
-
       }
 
       .avatarInfo {
@@ -118,3 +144,13 @@
   }
 
 }
+
+// .overlay{
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   width: 100%;
+//   height: 100%;
+//   z-index: 10;
+//   background-color: rgba(0,0,0,0.5); /*dim the background*/
+// }
