@@ -2,6 +2,7 @@ import { call, put } from 'redux-saga/effects';
 import ActionCreators from 'store/ducks/addPokemon';
 import RemovePokemonActionCreators from 'store/ducks/removePokemon';
 import PokedexActionCreators from 'store/ducks/pokedex';
+import LoaderActionCreators from 'store/ducks/loader';
 import firebase from 'config/FirebaseConfig';
 
 const rootRef = firebase.database().ref();
@@ -20,6 +21,8 @@ export function* addOrUpdatePokemon(action) {
   } catch (error) {
     yield put(ActionCreators.addPokemonFailure());
   }
+
+  yield put(LoaderActionCreators.loaderLoadingOff());
 }
 
 export function* removePokemon(action) {
@@ -32,6 +35,8 @@ export function* removePokemon(action) {
   } catch (error) {
     yield put(RemovePokemonActionCreators.removePokemonFailure());
   }
+
+  yield put(LoaderActionCreators.loaderLoadingOff());
 }
 
 function* checkIsInPokedex(pokemonName) {
@@ -53,3 +58,15 @@ export function* isPokemonInPokedex(action) {
     yield put(PokedexActionCreators.pokedexFailure());
   }
 }
+
+// export function* isPokemonListInPokedex(action) {
+  // try {
+  //   const pokemonName = action.pokemon;
+  //   const result = yield call(checkIsInPokedex, pokemonName);
+  //   const saved = !!result.val();
+
+  //   yield put(PokedexActionCreators.pokedexSuccess(saved));
+  // } catch (error) {
+  //   yield put(PokedexActionCreators.pokedexFailure());
+  // }
+// }

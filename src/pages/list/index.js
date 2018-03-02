@@ -3,10 +3,15 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import firebase from 'config/FirebaseConfig';
 
+/* Redux */
+import { connect } from 'react-redux';
+import PokedexActions from 'store/ducks/pokedex';
+
+/* Presentational */
 import ListItem from './components/ListItem';
 import './styles.css';
 
-export default class List extends Component {
+class List extends Component {
   static propTypes = {};
 
   static defaultProps = {};
@@ -25,6 +30,9 @@ export default class List extends Component {
     pokemonsRef.on('value', (snap) => {
       if (snap.val() !== null) {
         this.setState({ pokemons: snap.val() });
+        
+        // check there's in pokedex
+        // this.props.pokedexRequestList(snap.val());
       }
     });
   }
@@ -56,3 +64,10 @@ export default class List extends Component {
     );
   }
 }
+
+const mapDispatchToProps = dispatch => ({
+  pokedexRequestList: pokemons => dispatch(PokedexActions.pokedexRequestList(pokemons)),
+});
+
+
+export default connect(null, mapDispatchToProps)(List);

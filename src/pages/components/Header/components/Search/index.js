@@ -6,6 +6,7 @@ import _ from 'lodash';
 /* Redux */
 import { connect } from 'react-redux';
 import SearchActions from 'store/ducks/search';
+import LoaderActions from 'store/ducks/loader';
 
 /* Presentational */
 import TextInput from './components/TexInput';
@@ -31,6 +32,8 @@ class Search extends Component {
     const { pokemon } = this.state;
 
     if (pokemon === '') return;
+    console.tron.log(this.props);
+    this.props.loaderLoadingOn();
     this.props.searchRequest(pokemon);
   }
 
@@ -81,6 +84,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   searchRequest: pokemon => dispatch(SearchActions.searchRequest(pokemon)),
+  loaderLoadingOn: () => dispatch(LoaderActions.loaderLoadingOn()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Search);

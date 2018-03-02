@@ -42,13 +42,20 @@
         flex: 1;
         align-items: center;
         justify-content: center;
-        padding: 10px;
         margin: 10px;
         font-family: 'Helvetica Neue Bold';
         font-size: 14px;
-        color: #FFF;
         background-color: #757575;
         filter: drop-shadow(3px 2px 3px #775757); }
+        .infosContainer .infosBox .box-row-data .item-box-data .item-box-data-type-button {
+          color: #FFF;
+          flex: 1;
+          border: 0;
+          background-color: transparent;
+          padding: 10px;
+          font-family: 'Helvetica Neue Bold';
+          font-size: 14px;
+          cursor: pointer; }
       .infosContainer .infosBox .box-row-data .item-box-data-ability {
         background-color: transparent;
         font-family: 'helvetica-neue';

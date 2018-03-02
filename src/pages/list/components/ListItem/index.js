@@ -7,6 +7,7 @@ import { connect } from 'react-redux';
 import SearchActions from 'store/ducks/search';
 import AddPokemonActions from 'store/ducks/addPokemon';
 import RemovePokemonActions from 'store/ducks/removePokemon';
+import LoaderActions from 'store/ducks/loader';
 
 /* Presentational */
 import IconPlus from 'react-icons/lib/go/plus';
@@ -32,13 +33,14 @@ const renderButton = (pokedex, pokemon) => (
     : <IconX size={50} color="#D78989" className="poke-added" onClick={() => renderClick('remove', pokemon)} />
 );
 
-const handleDetails = (searchRequest, pokemon) => (
-  searchRequest(pokemon.name)
-);
+const handleDetails = (searchRequest, pokemon, loaderLoadingOn) => {
+  loaderLoadingOn();
+  return searchRequest(pokemon.name);
+};
 
-const ListItem = ({ pokemon, pokedex, searchRequest }) => (
+const ListItem = ({ pokemon, pokedex, searchRequest, loaderLoadingOn }) => (
   <div className="listItemContainer">
-    <button className="listItemButton" onClick={() => handleDetails(searchRequest, pokemon)}>
+    <button className="listItemButton" onClick={() => handleDetails(searchRequest, pokemon, loaderLoadingOn)}>
       <div className="list-item-title">{pokemon.name}</div>
       <div className="list-item-image">
         <img className="list-item-image-tag" src={pokemon.image} alt="" />
@@ -64,6 +66,7 @@ ListItem.propTypes = {
   }).isRequired,
 
   searchRequest: PropTypes.func.isRequired,
+  loaderLoadingOn: PropTypes.func.isRequired,
   // addPokemonRequest: PropTypes.func.isRequired,
   // removePokemonRequest: PropTypes.func.isRequired,
 };
@@ -81,6 +84,8 @@ const mapDispatchToProps = dispatch => ({
 
   removePokemonRequest: (id, name) =>
     dispatch(RemovePokemonActions.removePokemonRequest(id, name)),
+
+  loaderLoadingOn: () => dispatch(LoaderActions.loaderLoadingOn()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ListItem);

@@ -53,13 +53,22 @@
         flex: 1;
         align-items: center;
         justify-content: center;
-        padding: 10px;
         margin: 10px;
         font-family: 'Helvetica Neue Bold';
         font-size: 14px;
-        color: #FFF;
         background-color: rgb(117, 117, 117);
         filter: drop-shadow(3px 2px 3px rgb(119, 87, 87));
+        
+        .item-box-data-type-button {
+          color: #FFF;
+          flex: 1;
+          border: 0;
+          background-color: transparent;
+          padding: 10px;
+          font-family: 'Helvetica Neue Bold';
+          font-size: 14px;
+          cursor: pointer;
+        }
       }
 
       .item-box-data-ability {

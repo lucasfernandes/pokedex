@@ -7,6 +7,7 @@ import { connect } from 'react-redux';
 import PokedexActions from 'store/ducks/pokedex';
 import AddPokemondActions from 'store/ducks/addPokemon';
 import RemovePokemondActions from 'store/ducks/removePokemon';
+import LoaderActions from 'store/ducks/loader';
 
 /* Presentational */
 import IconPlus from 'react-icons/lib/go/plus';
@@ -32,6 +33,7 @@ class PokedexButton extends Component {
     addPokemonRequest: PropTypes.func.isRequired,
     removePokemonRequest: PropTypes.func.isRequired,
     pokedexRequest: PropTypes.func.isRequired,
+    loaderLoadingOn: PropTypes.func.isRequired,
   };
 
   state = {};
@@ -41,6 +43,7 @@ class PokedexButton extends Component {
   }
 
   renderClick = (action) => {
+    this.props.loaderLoadingOn();
     const { id, name, sprites } = this.props.pokemonInfo;
 
     if (action === 'add') {
@@ -78,6 +81,8 @@ const mapDispatchToProps = dispatch => ({
 
   removePokemonRequest: (id, name) =>
     dispatch(RemovePokemondActions.removePokemonRequest(id, name)),
+
+  loaderLoadingOn: () => dispatch(LoaderActions.loaderLoadingOn()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PokedexButton);

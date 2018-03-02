@@ -5,7 +5,8 @@
   align-items: center;
   padding: 80px;
   padding-right: 10px;
-  padding-left: 10px; }
+  padding-left: 10px;
+  height: 100%; }
   .listContainer .listTitle {
     color: #3D3D40;
     font-size: 30px;

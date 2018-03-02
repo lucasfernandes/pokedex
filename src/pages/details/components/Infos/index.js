@@ -2,10 +2,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+/* Redux */
+import { connect } from 'react-redux';
+import SearchByTypeActions from 'store/ducks/searchByType';
+import LoaderActions from 'store/ducks/loader';
+
+/* Presentational */
 import './styles.css';
 
 const renderStats = stats => (
-  stats.map(item => (
+  stats.reverse().map(item => (
     <div
       key={item.base_stat}
       className="stats-item stats-right"
@@ -15,12 +21,22 @@ const renderStats = stats => (
   ))
 );
 
-const renderTypes = types => (
-  types.reverse().map(item => (
+const renderTypeClick = (searchByTypeRequest, typeName, loaderLoadingOn) => {
+  loaderLoadingOn();
+  searchByTypeRequest(typeName);
+};
+
+const renderTypes = (types, searchByTypeRequest, loaderLoadingOn) => (
+  types.map(item => (
     <div
       className={`item-box-data ${item.type.name}`}
     >
-      {item.type.name}
+      <button
+        className="item-box-data-type-button"
+        onClick={() => renderTypeClick(searchByTypeRequest, item.type.name, loaderLoadingOn)}
+      >
+        {item.type.name}
+      </button>
     </div>
   ))
 );
@@ -31,14 +47,14 @@ const renderAbilities = abilities => (
   ))
 );
 
-const Infos = ({ stats, types, abilities }) => (
+const Infos = ({ stats, types, abilities, searchByTypeRequest, loaderLoadingOn }) => (
   <div className="infosContainer">
     <div className="infosBox">
       <div className="first-box-info">
         <div className="box-row">
           <div className="box-row-title">Types</div>
           <div className="box-row-data">
-            {renderTypes(types)}
+            {renderTypes(types, searchByTypeRequest, loaderLoadingOn)}
           </div>
         </div>
         <div className="divider" />
@@ -93,4 +109,9 @@ Infos.propTypes = {
   // })
 };
 
-export default Infos;
+const mapDispatchToProps = dispatch => ({
+  searchByTypeRequest: typeName => dispatch(SearchByTypeActions.searchByTypeRequest(typeName)),
+  loaderLoadingOn: () => dispatch(LoaderActions.loaderLoadingOn()),
+});
+
+export default connect(null, mapDispatchToProps)(Infos);
