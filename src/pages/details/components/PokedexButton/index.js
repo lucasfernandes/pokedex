@@ -1,9 +1,12 @@
 /* Core */
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 /* Redux */
 import { connect } from 'react-redux';
+import PokedexActions from 'store/ducks/pokedex';
+import AddPokemondActions from 'store/ducks/addPokemon';
+import RemovePokemondActions from 'store/ducks/removePokemon';
 
 /* Presentational */
 import IconPlus from 'react-icons/lib/go/plus';
@@ -11,26 +14,71 @@ import IconX from 'react-icons/lib/go/x';
 
 import './styles.css';
 
-const renderButton = (onClick, pokedex) => (
-  pokedex === false
-    ? <IconPlus size={50} color="#D78989" onClick={() => onClick()} />
-    : <IconX size={50} color="#D78989" onClick={() => onClick()} />
-);
 
-const PokedexButton = props => (
-  <div className="pokedexButtonContainer" title="Add to my Pokedéx">
-    {renderButton(props.onClick, props.search.pokedex)}
-  </div>
-);
+class PokedexButton extends Component {
+  static propTypes = {
+    pokedex: PropTypes.shape({
+      saved: PropTypes.bool,
+    }).isRequired,
 
-PokedexButton.propTypes = {
-  onClick: PropTypes.func.isRequired,
-  search: PropTypes.shape({}).isRequired,
-};
+    pokemonInfo: PropTypes.shape({
+      id: PropTypes.number,
+      name: PropTypes.string,
+      sprites: PropTypes.shape({
+        front_default: PropTypes.string,
+      }),
+    }).isRequired,
+
+    addPokemonRequest: PropTypes.func.isRequired,
+    removePokemonRequest: PropTypes.func.isRequired,
+    pokedexRequest: PropTypes.func.isRequired,
+  };
+
+  state = {};
+
+  componentDidMount() {
+    this.props.pokedexRequest(this.props.pokemonInfo.name);
+  }
+
+  renderClick = (action) => {
+    const { id, name, sprites } = this.props.pokemonInfo;
+
+    if (action === 'add') {
+      return this.props.addPokemonRequest(id, name, sprites.front_default, false);
+    }
+
+    return this.props.removePokemonRequest(id, name);
+  }
+
+  renderButton = () => (
+    this.props.pokedex.saved === false
+      ? <IconPlus size={50} color="#D78989" onClick={() => this.renderClick('add')} />
+      : <IconX size={50} color="#D78989" onClick={() => this.renderClick('remove')} />
+  );
+
+  render() {
+    return (
+      <div className="pokedexButtonContainer" title="Add to my Pokedéx">
+        {this.renderButton()}
+      </div>
+    );
+  }
+}
+
 
 const mapStateToProps = state => ({
-  search: state.search,
+  pokedex: state.pokedex,
 });
 
-export default connect(mapStateToProps)(PokedexButton);
+const mapDispatchToProps = dispatch => ({
+  pokedexRequest: pokemon => dispatch(PokedexActions.pokedexRequest(pokemon)),
+
+  addPokemonRequest: (id, name, image, favorite) =>
+    dispatch(AddPokemondActions.addPokemonRequest(id, name, image, favorite)),
+
+  removePokemonRequest: (id, name) =>
+    dispatch(RemovePokemondActions.removePokemonRequest(id, name)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(PokedexButton);
 

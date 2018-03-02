@@ -2,9 +2,10 @@
   display: flex;
   flex: 1;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  padding: 80px; }
+  padding: 80px;
+  padding-right: 10px;
+  padding-left: 10px; }
   .listContainer .listTitle {
     color: #3D3D40;
     font-size: 30px;
@@ -15,9 +16,10 @@
     display: flex;
     flex: 1;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     flex-wrap: wrap;
     margin-top: 70px; }
   .listContainer .listItemsContainer .list-aligner {
-    margin-bottom: 43px;
-    margin-left: 43px; }
+    margin-bottom: 63px;
+    margin-right: 27px;
+    margin-left: 27px; }

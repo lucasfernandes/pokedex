@@ -3,14 +3,17 @@
   flex: 1;
   flex-direction: row;
   position: absolute;
-  top: 95px;
-  right: 30px;
+  top: 87px;
+  right: 36px;
   height: 48px;
+  max-width: 300px;
+  min-width: 70px;
 
   .searchButton {
     position: absolute;
     top: 13px;
     right: 10px;
+    cursor: pointer;
   }
 
   .loading {
@@ -21,10 +24,10 @@
 
   .notfound {
     position: absolute;
-    bottom: 55px;
-    left: 0;
+    top: -20px;
+    right: 2px;
     color: white;
     font-size: 14px;
-    font-family: 'Helvetica Neue Bold';
+    font-family: 'helvetica-neue';
   }
 }

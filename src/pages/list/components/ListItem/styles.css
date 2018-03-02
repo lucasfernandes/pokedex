@@ -1,10 +1,19 @@
 .listItemContainer {
-  width: 169px;
-  height: 225px;
-  background-color: #BAB5B5;
-  background: radial-gradient(#e6e2e2, rgba(186, 181, 181, 0.726), rgba(186, 181, 181, 0.726));
+  width: 259px;
+  height: 305px;
+  background-color: #3D3D40;
   border-radius: 6px;
-  filter: drop-shadow(0px 3px 2px #6c6c6d); }
+  filter: drop-shadow(0px 1px 2px #6c6c6d);
+  cursor: pointer; }
+  .listItemContainer .listItemButton {
+    flex: 1;
+    width: 100%;
+    background-color: transparent;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    background-color: tranparent;
+    cursor: pointer; }
   .listItemContainer .list-item-title {
     display: flex;
     flex: 1;
@@ -13,27 +22,30 @@
     font-family: 'Helvetica Neue Bold';
     font-size: 20px;
     color: #FFF;
-    padding-top: 20px; }
+    padding-top: 20px;
+    text-transform: capitalize; }
   .listItemContainer .list-item-image {
     display: flex;
     flex: 1;
     flex-direction: column;
-    align-items: center;
-    margin-top: 20px;
-    margin-bottom: 10px; }
+    align-items: center; }
+    .listItemContainer .list-item-image .list-item-image-tag {
+      width: 180px;
+      height: 180px; }
   .listItemContainer .list-item-added {
     display: flex;
     flex: 1;
     align-items: center;
     justify-content: center;
-    background-color: white;
-    height: 46px; }
+    background-color: #6c6c6d;
+    height: 56px; }
     .listItemContainer .list-item-added .poke-added {
-      width: 25px;
-      height: 25px;
-      border-radius: 50%; }
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background-color: #FFF; }
     .listItemContainer .list-item-added .poke-added:hover {
-      transform: scale(1.2);
+      transform: scale(1.1);
       filter: drop-shadow(0px 3px 2px #6c6c6d); }
     .listItemContainer .list-item-added .item-list-poke-added {
       background-color: #f09d9d; }

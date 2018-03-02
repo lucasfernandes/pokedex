@@ -14,68 +14,43 @@ export default class List extends Component {
   constructor() {
     super();
     this.state = {
-      pokemons: [],
+      pokemons: {},
     };
   }
 
   componentDidMount() {
     const rootRef = firebase.database().ref();
     const pokemonsRef = rootRef.child('pokemons');
+
     pokemonsRef.on('value', (snap) => {
-      this.setState({
-        pokemons: snap.val(),
-      });
+      if (snap.val() !== null) {
+        this.setState({ pokemons: snap.val() });
+      }
     });
   }
 
+  listItems = () => (
+    Object.values(this.state.pokemons).length === 0
+      ? this.renderEmpty()
+      : Object.values(this.state.pokemons).map(pokemon => (
+        <div className="list-aligner">
+          <ListItem key={pokemon.id} pokemon={pokemon} />
+        </div>
+      ))
+  );
+
+  renderEmpty = () => (
+    <div>Sua pokedex está vazia</div>
+  )
+
   render() {
-    console.tron.log(this.state.pokemons);
     return (
       <div className="listContainer">
         <div className="listTitle">
-          Pokemons Added
+          Known Pokemons
         </div>
         <div className="listItemsContainer">
-          <div className="list-aligner">
-            <ListItem />
-          </div>
-          <div className="list-aligner">
-            <ListItem />
-          </div>
-          <div className="list-aligner">
-            <ListItem />
-          </div>
-          <div className="list-aligner">
-            <ListItem />
-          </div>
-          <div className="list-aligner">
-            <ListItem />
-          </div>
-          <div className="list-aligner">
-            <ListItem />
-          </div>
-          <div className="list-aligner">
-            <ListItem />
-          </div>
-          <div className="list-aligner">
-            <ListItem />
-          </div>
-          <div className="list-aligner">
-            <ListItem />
-          </div>
-          <div className="list-aligner">
-            <ListItem />
-          </div>
-          <div className="list-aligner">
-            <ListItem />
-          </div>
-          <div className="list-aligner">
-            <ListItem />
-          </div>
-          <div className="list-aligner">
-            <ListItem />
-          </div>
-          
+          {this.listItems()}
         </div>
       </div>
     );

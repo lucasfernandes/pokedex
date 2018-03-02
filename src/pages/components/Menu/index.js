@@ -11,7 +11,7 @@ import MenuActions from '../../../store/ducks/menu';
 import './styles.css';
 
 const slideToogle = () => {
-  console.tron.log('chamando o menu');
+  // console.tron.log('chamando o menu');
 };
 
 const Menu = () => (

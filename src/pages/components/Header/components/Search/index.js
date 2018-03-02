@@ -61,7 +61,7 @@ class Search extends Component {
         <TextInput
           value={this.state.value}
           onChange={this.handleChange}
-          placeholder="Pesquise um pokemon"
+          placeholder="Pesquisa"
           error={error}
         />
 

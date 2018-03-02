@@ -1,11 +1,11 @@
 .listContainer {
   display: flex;
   flex: 1;
-  // border: 1px solid blue;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   padding: 80px;  
+  padding-right: 10px;
+  padding-left: 10px;
 
   .listTitle {
     color: #3D3D40;
@@ -18,16 +18,15 @@
   .listItemsContainer {
     display: flex;
     flex: 1;
-    // justify-content: space-around;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     flex-wrap: wrap;
-    // border: 1px solid red;
     margin-top: 70px;
   }
 
   .listItemsContainer .list-aligner {
-    margin-bottom: 43px;
-    margin-left: 43px;
+    margin-bottom: 63px;
+    margin-right: 27px;
+    margin-left: 27px;
   }
 }

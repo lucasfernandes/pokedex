@@ -82,7 +82,7 @@ class Details extends Component {
         </div>
         <div className="buttonContainer">
           <div className="buttonAligner">
-            <PokedexButton onClick={() => this.props.addPokemonRequest(data.id, data.name, false)} />
+            <PokedexButton pokemonInfo={data} />
           </div>
         </div>
         <div className="bottomContainer">
@@ -107,8 +107,6 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   detailsCardClose: () => dispatch(DetailsCardActions.detailsCardClose()),
-  addPokemonRequest: (id, name, favorite) =>
-    dispatch(AddPokemondActions.addPokemonRequest(id, name, favorite)),
 });
 
 

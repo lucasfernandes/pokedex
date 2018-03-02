@@ -35,7 +35,8 @@
     .infosContainer .infosBox .box-row-data {
       flex: 1;
       justify-content: center;
-      padding: 15px; }
+      padding: 15px;
+      cursor: pointer; }
       .infosContainer .infosBox .box-row-data .item-box-data {
         display: flex;
         flex: 1;

@@ -17,9 +17,9 @@ const renderDetails = (data, open) => (
 
 const Main = ({ search, open }) => (
   <div className="container">
+    {renderDetails(search, open)}
     <Header />
     <List />
-    {renderDetails(search, open)}
   </div>
 );
 

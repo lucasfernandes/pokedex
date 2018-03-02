@@ -1,10 +1,23 @@
+
+
 .listItemContainer {
-  width: 169px;
-  height: 225px;
-  background-color: #BAB5B5;
-  background: radial-gradient(rgb(230, 226, 226), rgba(186, 181, 181, 0.726), rgba(186, 181, 181, 0.726));
+  width: 259px;
+  height: 305px;
+  background-color: #3D3D40;
   border-radius: 6px;
-  filter: drop-shadow(0px 3px 2px #6c6c6d);
+  filter: drop-shadow(0px 1px 2px #6c6c6d);
+  cursor: pointer;
+
+  .listItemButton {
+    flex: 1;
+    width: 100%;
+    background-color: transparent;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    background-color: tranparent;
+    cursor: pointer;
+  }
 
   .list-item-title {
     display: flex;
@@ -15,6 +28,7 @@
     font-size: 20px;
     color: #FFF;
     padding-top: 20px;
+    text-transform: capitalize;
   }
 
   .list-item-image {
@@ -22,27 +36,30 @@
     flex: 1;
     flex-direction: column;
     align-items: center;
-    margin-top: 20px;
-    margin-bottom: 10px;
+
+    .list-item-image-tag {
+      width: 180px;
+      height: 180px; 
+    }
   }
-  
 
   .list-item-added {
     display: flex;
     flex: 1;
     align-items: center;
     justify-content: center;
-    background-color: white;
-    height: 46px;
+    background-color: #6c6c6d;
+    height: 56px;
 
     .poke-added {
-      width: 25px;
-      height: 25px;
+      width: 30px;
+      height: 30px;
       border-radius: 50%;
+      background-color: #FFF;
     }
 
     .poke-added:hover {
-      transform: scale(1.2);
+      transform: scale(1.1);
       filter: drop-shadow(0px 3px 2px #6c6c6d);
     }
 
@@ -50,8 +67,6 @@
       background-color: rgb(240, 157, 157);
     }
   }
-  
-
 }
 
 .listItemContainer:hover {

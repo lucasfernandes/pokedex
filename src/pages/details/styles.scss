@@ -14,18 +14,23 @@
   flex: 1;
   justify-content: center;
   align-items: center;
-  margin-top: -80px;
+  position: relative;
   
   .detailsCard {
     display: flex;
     flex: 1;
     flex-direction: column;
-    max-width: 595px;
+    min-width: 595px;
     background-color: #FFF;
     border-radius: 20px;
     filter: drop-shadow(0 5px 10px #252522);    
     padding-bottom: 30px;
     z-index: 20;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    // align-self: center;
 
     .topCard {
       display: flex;
@@ -46,11 +51,11 @@
         top: 25px;
         right: 30px;
         filter: drop-shadow(0 5px 10px #252522);    
+        cursor: pointer;
       }
 
       .closeCard:hover {
         transform: scale(1.1);
-        cursor: hand;
       }
 
       .avatarBox {
@@ -84,6 +89,7 @@
           flex: 1;
           flex-direction: column;
           align-items: center;
+          cursor: pointer;
         }
 
         .iconChevron:hover {
@@ -124,6 +130,7 @@
 
     .buttonContainer {
       height: 0;
+      cursor: pointer;
       
       .buttonAligner {
         display: flex;
@@ -142,7 +149,6 @@
       height: auto;
     }
   }
-
 }
 
 // .overlay{

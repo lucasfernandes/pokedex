@@ -3,9 +3,9 @@ import { createActions, createReducer } from 'reduxsauce';
 /* Types & Creators */
 
 const { Types, Creators } = createActions({
-  addPokemonRequest: ['id', 'name', 'image', 'favorite'],
-  addPokemonSuccess: null,
-  addPokemonFailure: null,
+  removePokemonRequest: ['id', 'name'],
+  removePokemonSuccess: null,
+  removePokemonFailure: null,
 });
 
 export { Types };
@@ -38,7 +38,7 @@ export const failure = state => ({
 });
 
 export const reducer = createReducer(INITIAL_STATE, {
-  [Types.ADD_POKEMON_REQUEST]: request,
-  [Types.ADD_POKEMON_SUCCESS]: success,
-  [Types.ADD_POKEMON_FAILURE]: failure,
+  [Types.REMOVE_POKEMON_REQUEST]: request,
+  [Types.REMOVE_POKEMON_SUCCESS]: success,
+  [Types.REMOVE_POKEMON_FAILURE]: failure,
 });
