@@ -10,32 +10,28 @@ import firebase from 'config/FirebaseConfig';
 const rootRef = firebase.database().ref();
 const pokemonsRef = rootRef.child('pokemons');
 
-function* checkIsInPokedex(pokemonName) {
-  const pokemonByName = pokemonsRef
-    .orderByChild('name')
-    .equalTo(pokemonName);
-
-  return yield call([pokemonByName, pokemonByName.once], 'value');
-}
-
 export function* searchByNameOrId(action) {
   const response = yield call(api.get, `pokemon/${action.pokemon}`);
+  let inPokedex = false;
 
   if (response.ok) {
     try {
+      const singlePokemonRef = pokemonsRef.orderByChild('name').equalTo(response.data.name);
+      const result = yield call([singlePokemonRef, singlePokemonRef.once], 'value');
 
-      const result = yield call(checkIsInPokedex, response.data.name);
-      const pokemon = result.val()[1];
+      if (result.val() !== null) {
+        inPokedex = true;
 
-      if (pokemon !== null &&
-          pokemon.image !== response.data.sprites.front_default) {
-        response.data.sprites.front_default = pokemon.image;
+        const image = Object.values(result.val()).map(item => (
+          item.image !== response.data.sprites.front_default && item.image
+        ))[0];
+
+        if (image !== false) response.data.sprites.front_default = image;
       }
 
-      yield put(ActionCreators.searchSuccess(response.data));
+      yield put(ActionCreators.searchSuccess(response.data, inPokedex));
       yield put(DetailsCardActionCreators.detailsCardOpen());
     } catch (error) {
-      console.tron.log(error.message);
       yield put(ActionCreators.searchFailure());
     }
   } else {

@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 /* Redux */
 import { connect } from 'react-redux';
 import DetailsCardActions from 'store/ducks/detailsCard';
-import AddPokemondActions from 'store/ducks/addPokemon';
 
 /* Presentational */
 import * as Icons from 'react-icons/lib/go';
@@ -27,7 +26,6 @@ class Details extends Component {
         }),
       }),
     }).isRequired,
-    addPokemonRequest: PropTypes.func.isRequired,
     detailsCardClose: PropTypes.func.isRequired,
   };
 
@@ -67,9 +65,11 @@ class Details extends Component {
                 src={data.sprites.front_default}
                 alt=""
               />
-              <div className="avatar-upload">
-                <Uploader data={data} />
-              </div>
+              { this.props.inPokedex &&
+                <div className="avatar-upload">
+                  <Uploader data={data} />
+                </div>
+              }
             </div>
             <div className="iconChevron" title="Next Level">
               <Icons.GoChevronRight size={60} color="#BABABA" />
@@ -108,6 +108,7 @@ class Details extends Component {
 
 const mapStateToProps = state => ({
   search: state.search,
+  inPokedex: state.pokedex.saved,
 });
 
 const mapDispatchToProps = dispatch => ({

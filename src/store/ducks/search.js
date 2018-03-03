@@ -4,7 +4,7 @@ import { createActions, createReducer } from 'reduxsauce';
 
 const { Types, Creators } = createActions({
   searchRequest: ['pokemon'],
-  searchSuccess: ['data', 'pokedex'],
+  searchSuccess: ['data', 'inPokedex'],
   searchFailure: null,
 });
 
@@ -16,7 +16,7 @@ const INITIAL_STATE = {
   data: [],
   loading: false,
   error: false,
-  pokedex: false,
+  inPokedex: false,
 };
 
 /* Reducers */
@@ -32,7 +32,7 @@ export const success = (state, action) => ({
   data: action.data,
   loading: false,
   error: false,
-  pokedex: action.pokedex,
+  inPokedex: action.inPokedex,
 });
 
 export const failure = state => ({

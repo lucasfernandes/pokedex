@@ -5,7 +5,7 @@ import firebase from 'config/FirebaseConfig';
 
 /* Redux */
 import { connect } from 'react-redux';
-import PokedexActions from 'store/ducks/pokedex';
+// import PokedexActions from 'store/ducks/pokedex';
 
 /* Presentational */
 import ListItem from './components/ListItem';
@@ -66,7 +66,7 @@ class List extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-  pokedexRequestList: pokemons => dispatch(PokedexActions.pokedexRequestList(pokemons)),
+  // pokedexRequestList: pokemons => dispatch(PokedexActions.pokedexRequestList(pokemons)),
 });
 
 
