@@ -11,7 +11,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   display: block; }
 
 html {
-  min-height: 100%; }
+  background: radial-gradient(#e0dede, #f39393); }
 
 body {
   line-height: 1; }
@@ -52,9 +52,9 @@ table {
   display: flex;
   flex: 1;
   min-width: 50%;
-  height: 100%;
   flex-direction: column;
   position: relative;
   background: linear-gradient(#e0dede, #BAB5B5);
   margin-right: auto;
-  margin-left: auto; }
+  margin-left: auto;
+  border: 1px solid red; }

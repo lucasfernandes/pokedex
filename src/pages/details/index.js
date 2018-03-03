@@ -9,6 +9,7 @@ import AddPokemondActions from 'store/ducks/addPokemon';
 
 /* Presentational */
 import * as Icons from 'react-icons/lib/go';
+import Uploader from './components/Uploader';
 import PokedexButton from './components/PokedexButton';
 import Infos from './components/Infos';
 import './styles.css';
@@ -47,6 +48,7 @@ class Details extends Component {
     <div styles="display:flex; flex: 1; selfAlign: center;">Loading</div>
   );
 
+
   renderDetails = data => (
     <div className="detailsContainer">
       <div className="detailsCard">
@@ -65,6 +67,9 @@ class Details extends Component {
                 src={data.sprites.front_default}
                 alt=""
               />
+              <div className="avatar-upload">
+                <Uploader data={data} />
+              </div>
             </div>
             <div className="iconChevron" title="Next Level">
               <Icons.GoChevronRight size={60} color="#BABABA" />

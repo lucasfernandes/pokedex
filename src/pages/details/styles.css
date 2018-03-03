@@ -53,7 +53,24 @@
           height: 222px;
           border-radius: 116px;
           background-color: #D77474;
-          border: 6px solid #DCD2D2; }
+          border: 6px solid #DCD2D2;
+          position: relative; }
+          .detailsContainer .detailsCard .topCard .avatarBox .avatar-ball .avatar-upload {
+            display: flex;
+            flex: 1;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            bottom: 10px;
+            right: 98px;
+            border-radius: 50%;
+            width: 25px;
+            height: 25px;
+            background-color: #b19494;
+            border: 1px solid #383333;
+            cursor: pointer; }
+            .detailsContainer .detailsCard .topCard .avatarBox .avatar-ball .avatar-upload .icon-upload {
+              cursor: pointer; }
         .detailsContainer .detailsCard .topCard .avatarBox .avatar-img {
           border-radius: 50%;
           width: 222px;

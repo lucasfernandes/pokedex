@@ -5,7 +5,7 @@ const config = {
   authDomain: 'pokedex-80740.firebaseapp.com',
   databaseURL: 'https://pokedex-80740.firebaseio.com',
   projectId: 'pokedex-80740',
-  storageBucket: '',
+  storageBucket: 'gs://pokedex-80740.appspot.com',
   messagingSenderId: '880275253751',
 };
 

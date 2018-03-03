@@ -74,7 +74,29 @@
           border-radius: 116px;
           background-color: #D77474;
           border: 6px solid #DCD2D2;
+          position: relative;
+
+          .avatar-upload {
+            display: flex;
+            flex: 1;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            bottom: 10px;
+            right: 98px;
+            border-radius: 50%;
+            width: 25px;
+            height: 25px;
+            background-color: rgb(177, 148, 148);
+            border: 1px solid rgb(56, 51, 51);
+            cursor: pointer;
+
+            .icon-upload {
+              cursor: pointer;
+            }
+          }
         }
+
         
         .avatar-img {
           border-radius: 50%;

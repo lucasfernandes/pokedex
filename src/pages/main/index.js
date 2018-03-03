@@ -32,6 +32,7 @@ const Main = ({ search, open, loading }) => (
     active={loading}
     spinner
     text="Loading your content"
+    className="loadable"
   >
     <div className="container">
       {renderDetails(search, open)}
