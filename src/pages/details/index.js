@@ -26,6 +26,7 @@ class Details extends Component {
         }),
       }),
     }).isRequired,
+    inPokedex: PropTypes.bool.isRequired,
     detailsCardClose: PropTypes.func.isRequired,
   };
 
