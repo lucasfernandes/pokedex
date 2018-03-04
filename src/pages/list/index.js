@@ -15,7 +15,7 @@ class List extends Component {
   static propTypes = {
     searchByType: PropTypes.shape({
       typeName: PropTypes.string,
-      data: PropTypes.shape({}),
+      data: PropTypes.arrayOf(PropTypes.shape({})),
     }).isRequired,
   };
 
@@ -46,7 +46,7 @@ class List extends Component {
     Object.values(this.state.pokemons).length === 0
       ? this.renderEmpty()
       : Object.values(this.state.pokemons).map(pokemon => (
-        <div className="list-aligner">
+        <div key={pokemon.id} className="list-aligner">
           <ListItem key={pokemon.id} pokemon={pokemon} />
         </div>
       ))

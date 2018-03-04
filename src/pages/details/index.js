@@ -92,7 +92,12 @@ class Details extends Component {
           </div>
         </div>
         <div className="bottomContainer">
-          <Infos stats={data.stats} types={data.types} abilities={data.abilities} />
+          <Infos
+            stats={data.stats}
+            types={data.types}
+            abilities={data.abilities}
+            short_effects={data.short_effects}
+          />
         </div>
       </div>
     </div>

@@ -10,14 +10,13 @@
       display: flex;
       flex: 1;
       flex-direction: row;
-      justify-content: space-between;
-      width: 60%;
       margin-top: 25px;
       height: auto; }
     .infosContainer .infosBox .box-row {
       flex: 1;
       justify-content: center;
-      align-items: center; }
+      align-items: center;
+      width: 170px; }
     .infosContainer .infosBox .divider {
       margin: 12px; }
     .infosContainer .infosBox .box-row-title {

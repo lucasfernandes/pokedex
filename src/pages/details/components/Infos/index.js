@@ -41,13 +41,20 @@ const renderTypes = (types, searchByTypeRequest, loaderLoadingOn) => (
   ))
 );
 
-const renderAbilities = abilities => (
-  abilities.map(item => (
-    <div className="item-box-data item-box-data-ability">{item.ability.name}</div>
+const renderAbilities = (abilities, shortEffects) => (
+  abilities.map((item, index) => (
+    <div className="item-box-data">
+      <button
+        className="item-box-data-type-button"
+        onClick={() => alert(shortEffects[index].effect_entries[0].short_effect)}
+      >
+        {item.ability.name}
+      </button>
+    </div>
   ))
 );
 
-const Infos = ({ stats, types, abilities, searchByTypeRequest, loaderLoadingOn }) => (
+const Infos = ({ stats, types, abilities, short_effects, searchByTypeRequest, loaderLoadingOn }) => (
   <div className="infosContainer">
     <div className="infosBox">
       <div className="first-box-info">
@@ -61,7 +68,7 @@ const Infos = ({ stats, types, abilities, searchByTypeRequest, loaderLoadingOn }
         <div className="box-row">
           <div className="box-row-title">Abilities</div>
           <div className="box-row-data">
-            {renderAbilities(abilities)}
+            {renderAbilities(abilities, short_effects)}
           </div>
         </div>
       </div>

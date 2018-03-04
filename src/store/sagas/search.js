@@ -11,26 +11,50 @@ import firebase from 'config/FirebaseConfig';
 const rootRef = firebase.database().ref();
 const pokemonsRef = rootRef.child('pokemons');
 
+async function getShortEffect(name) {
+  const response = await api.get(`ability/${name}`);
+  return response.data;
+}
+
+function* getAllShotEffectsFromAbilities(abilities) {
+  // console.tron.log(abilities);
+  const abilitiesValues = Object.values(abilities);
+
+  const shortEffectsList = yield all(abilitiesValues.map(item =>
+    call(getShortEffect, item.ability.name)));
+
+  return shortEffectsList;
+}
+
 export function* searchByNameOrId(action) {
+  // Get a pokemon from API
   const response = yield call(api.get, `pokemon/${action.pokemon}`);
   let inPokedex = false;
 
   if (response.ok) {
+    const { data } = response;
+
     try {
-      const singlePokemonRef = pokemonsRef.orderByChild('name').equalTo(response.data.name);
+      // Check did save a different image on Firebase
+      const singlePokemonRef = pokemonsRef.orderByChild('name').equalTo(data.name);
       const result = yield call([singlePokemonRef, singlePokemonRef.once], 'value');
 
       if (result.val() !== null) {
         inPokedex = true;
 
         const image = Object.values(result.val()).map(item => (
-          item.image !== response.data.sprites.front_default && item.image
+          item.image !== data.sprites.front_default && item.image
         ))[0];
 
-        if (image !== false) response.data.sprites.front_default = image;
+        if (image !== false) data.sprites.front_default = image;
       }
 
-      yield put(ActionCreators.searchSuccess(response.data, inPokedex));
+      // Get short_effect to compose needed info
+      const { abilities } = data;
+      const shortEffectsList = yield call(getAllShotEffectsFromAbilities, abilities);
+      data.short_effects = shortEffectsList;
+
+      yield put(ActionCreators.searchSuccess(data, inPokedex));
       yield put(DetailsCardActionCreators.detailsCardOpen());
     } catch (error) {
       yield put(ActionCreators.searchFailure());

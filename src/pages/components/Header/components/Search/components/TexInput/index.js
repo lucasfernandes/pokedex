@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import './styles.css';
 
 const toogleStyle = error => (
-  error ? 'error textInput' : 'textInput'
+  error === 'true' ? 'error textInput' : 'textInput'
 );
 
 const TextInput = props => (
@@ -18,7 +18,7 @@ const TextInput = props => (
 );
 
 TextInput.propTypes = {
-  error: PropTypes.bool.isRequired,
+  error: PropTypes.string.isRequired,
 };
 
 export default TextInput;

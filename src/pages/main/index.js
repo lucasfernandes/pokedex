@@ -44,7 +44,7 @@ const Main = ({ search, open, loading }) => (
 
 Main.propTypes = {
   search: PropTypes.shape({
-    data: PropTypes.shape({}),
+    data: PropTypes.arrayOf(PropTypes.shape({})),
   }).isRequired,
   open: PropTypes.bool.isRequired,
   loading: PropTypes.bool.isRequired,

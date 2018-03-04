@@ -17,6 +17,7 @@ import './styles.css';
 class Search extends Component {
   static propTypes = {
     searchRequest: PropTypes.func.isRequired,
+    loaderLoadingOn: PropTypes.func.isRequired,
     search: PropTypes.shape({
       loading: PropTypes.bool,
       error: PropTypes.bool,
@@ -32,7 +33,7 @@ class Search extends Component {
     const { pokemon } = this.state;
 
     if (pokemon === '') return;
-    console.tron.log(this.props);
+
     this.props.loaderLoadingOn();
     this.props.searchRequest(pokemon);
   }
@@ -65,7 +66,7 @@ class Search extends Component {
           value={this.state.value}
           onChange={this.handleChange}
           placeholder="Pesquisa"
-          error={error}
+          error={error ? 'true' : 'false'}
         />
 
         {loading

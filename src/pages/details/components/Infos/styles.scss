@@ -12,8 +12,6 @@
       display: flex;
       flex: 1;
       flex-direction: row;
-      justify-content: space-between;
-      width: 60%;
       margin-top: 25px;
       height: auto;
     }
@@ -22,6 +20,7 @@
       flex: 1;
       justify-content: center;
       align-items: center;
+      width: 170px;
     }
 
     .divider {
