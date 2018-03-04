@@ -3,6 +3,7 @@ import { combineReducers } from 'redux';
 /* Reducers */
 import { reducer as search } from './ducks/search';
 import { reducer as searchByType } from './ducks/searchByType';
+import { reducer as searchByNameForType } from './ducks/searchByNameForType';
 import { reducer as detailsCard } from './ducks/detailsCard';
 import { reducer as loader } from './ducks/loader';
 import { reducer as addPokemon } from './ducks/addPokemon';
@@ -15,6 +16,7 @@ import rootSaga from './sagas';
 const rootReducer = combineReducers({
   search,
   searchByType,
+  searchByNameForType,
   detailsCard,
   loader,
   addPokemon,

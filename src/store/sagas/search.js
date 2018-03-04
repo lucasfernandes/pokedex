@@ -3,6 +3,7 @@ import api from 'services/api';
 import { call, put, all } from 'redux-saga/effects';
 import ActionCreators from 'store/ducks/search';
 import SearchByTypeActionCreators from 'store/ducks/searchByType';
+import SearchByNameForTypeActionCreators from 'store/ducks/searchByNameForType';
 import DetailsCardActionCreators from 'store/ducks/detailsCard';
 import LoaderActionCreators from 'store/ducks/loader';
 import firebase from 'config/FirebaseConfig';
@@ -41,37 +42,66 @@ export function* searchByNameOrId(action) {
   yield put(LoaderActionCreators.loaderLoadingOff());
 }
 
-async function getPokemonData(name) {
-  const response = await api.get(`pokemon/${name}`);
-  return response.data;
-}
-
-function* getAllByNameFromApi(pokemons) {
-  const pokemonValues = Object.values(pokemons);
-
-  const pokemonsList = yield all(pokemonValues.map(item =>
-    call(getPokemonData, item.pokemon.name)));
-
-  return pokemonsList;
-}
-
 export function* searchAllByType(action) {
   const response = yield call(api.get, `type/${action.typeName}`);
 
   if (response.ok) {
-    const pokemons = response.data.pokemon;
-
-    try {
-      const pokemonsList = yield call(getAllByNameFromApi, pokemons);
-      console.tron.log(pokemonsList);
-      yield put(SearchByTypeActionCreators.searchByTypeSuccess(action.typeName, pokemonsList));
-    } catch (error) {
-      console.tron.log(error.message);
-      yield put(SearchByTypeActionCreators.searchByTypeFailure());
-    }
+    yield put(SearchByTypeActionCreators.searchByTypeSuccess(response.data, action.typeName));
+    yield put(DetailsCardActionCreators.detailsCardClose());
   } else {
     yield put(SearchByTypeActionCreators.searchByTypeFailure());
   }
 
   yield put(LoaderActionCreators.loaderLoadingOff());
 }
+
+export function* searchByNameForType(action) {
+  try {
+    const response = yield call(api.get, `pokemon/${action.pokemon}`);
+    if (response.ok) {
+      yield put(SearchByNameForTypeActionCreators.searchByNameForTypeSuccess(response.data));
+    } else {
+      yield put(SearchByNameForTypeActionCreators.searchByNameForTypeFailure());
+    }
+  } catch (error) {
+    console.tron.log(error.message);
+  }
+}
+
+/*  GET EVERYONE BUT TAKES TO MUCH TIME */
+
+// async function getPokemonData(name) {
+//   const response = await api.get(`pokemon/${name}`);
+//   return response.data;
+// }
+
+// function* getAllByNameFromApi(pokemons) {
+//   const pokemonValues = Object.values(pokemons);
+
+//   const pokemonsList = yield all(pokemonValues.map(item =>
+//     call(getPokemonData, item.pokemon.name)));
+
+//   return pokemonsList;
+// }
+
+
+// export function* searchAllByType(action) {
+//   const response = yield call(api.get, `type/${action.typeName}`);
+
+//   if (response.ok) {
+//     const pokemons = response.data.pokemon;
+
+//     try {
+//       const pokemonsList = yield call(getAllByNameFromApi, pokemons);
+//       console.tron.log(pokemonsList);
+//       yield put(SearchByTypeActionCreators.searchByTypeSuccess(action.typeName, pokemonsList));
+//     } catch (error) {
+//       console.tron.log(error.message);
+//       yield put(SearchByTypeActionCreators.searchByTypeFailure());
+//     }
+//   } else {
+//     yield put(SearchByTypeActionCreators.searchByTypeFailure());
+//   }
+
+//   yield put(LoaderActionCreators.loaderLoadingOff());
+// }

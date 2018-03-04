@@ -10,11 +10,20 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
   display: block; }
 
-html {
-  background: radial-gradient(#e0dede, #f39393); }
-
 body {
-  line-height: 1; }
+  line-height: 1;
+  display: flex;
+  height: 100%;
+  flex-direction: column; }
+
+#root {
+  height: 100%;
+  border: 1px solid black; }
+
+html, body {
+  display: flex;
+  min-height: 100%;
+  flex-direction: column; }
 
 ol, ul {
   list-style: none; }
@@ -52,6 +61,7 @@ table {
   display: flex;
   flex: 1;
   min-width: 50%;
+  height: 100%;
   flex-direction: column;
   position: relative;
   background: linear-gradient(#e0dede, #BAB5B5);

@@ -5,14 +5,19 @@ import firebase from 'config/FirebaseConfig';
 
 /* Redux */
 import { connect } from 'react-redux';
-// import PokedexActions from 'store/ducks/pokedex';
 
 /* Presentational */
 import ListItem from './components/ListItem';
+import ListItemType from './components/ListItemType';
 import './styles.css';
 
 class List extends Component {
-  static propTypes = {};
+  static propTypes = {
+    searchByType: PropTypes.shape({
+      typeName: PropTypes.string,
+      data: PropTypes.shape({}),
+    }).isRequired,
+  };
 
   static defaultProps = {};
 
@@ -30,7 +35,7 @@ class List extends Component {
     pokemonsRef.on('value', (snap) => {
       if (snap.val() !== null) {
         this.setState({ pokemons: snap.val() });
-        
+
         // check there's in pokedex
         // this.props.pokedexRequestList(snap.val());
       }
@@ -47,27 +52,47 @@ class List extends Component {
       ))
   );
 
+  listItemsByType = data => (
+    Object.values(data.pokemon).length === 0
+      ? this.renderEmpty()
+      : Object.values(data.pokemon).map(item => (
+        <div className="list-aligner">
+          <ListItemType key={item.pokemon.name} pokemon={item.pokemon} />
+        </div>
+      ))
+  )
+
   renderEmpty = () => (
     <div>Sua pokedex está vazia</div>
   )
 
+  renderTitle = typeName => (
+    this.props.searchByType.typeName === ''
+      ? 'Known Pokemons'
+      : `All ${typeName} pokemons`
+  )
+
   render() {
+    const { typeName, data } = this.props.searchByType;
+
     return (
       <div className="listContainer">
         <div className="listTitle">
-          Known Pokemons
+          {this.renderTitle(typeName)}
         </div>
         <div className="listItemsContainer">
-          {this.listItems()}
+          {this.props.searchByType.typeName === ''
+            ? this.listItems()
+            : this.listItemsByType(data)}
         </div>
       </div>
     );
   }
 }
 
-const mapDispatchToProps = dispatch => ({
-  // pokedexRequestList: pokemons => dispatch(PokedexActions.pokedexRequestList(pokemons)),
+const mapStateToProps = state => ({
+  searchByType: state.searchByType,
 });
 
 
-export default connect(null, mapDispatchToProps)(List);
+export default connect(mapStateToProps)(List);

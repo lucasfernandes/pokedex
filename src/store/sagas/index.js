@@ -1,16 +1,21 @@
-import { all, takeLatest } from 'redux-saga/effects';
+import { all, takeLatest, takeEvery, tak } from 'redux-saga/effects';
 
 /* Types */
 import { Types as SearchTypes } from 'store/ducks/search';
 import { Types as SearchByTypeTypes } from 'store/ducks/searchByType';
+import { Types as SearchByNameForTypeTypes } from 'store/ducks/searchByNameForType';
 import { Types as AddPokemonTypes } from 'store/ducks/addPokemon';
 import { Types as RemovePokemonTypes } from 'store/ducks/removePokemon';
 import { Types as PokedexTypes } from 'store/ducks/pokedex';
 
 /* Sagas */
-import { searchByNameOrId, searchAllByType } from './search';
-// import { addOrUpdatePokemon, isPokemonInPokedex, isPokemonListInPokedex, removePokemon } from './pokemon';
-import { addOrUpdatePokemon, isPokemonInPokedex, removePokemon } from './pokemon';
+import { searchByNameOrId, searchAllByType, searchByNameForType } from './search';
+
+import {
+  addOrUpdatePokemon,
+  isPokemonInPokedex,
+  removePokemon,
+} from './pokemon';
 
 export default function* root() {
   yield all([
@@ -19,6 +24,7 @@ export default function* root() {
     takeLatest(AddPokemonTypes.ADD_POKEMON_REQUEST, addOrUpdatePokemon),
     takeLatest(RemovePokemonTypes.REMOVE_POKEMON_REQUEST, removePokemon),
     takeLatest(PokedexTypes.POKEDEX_REQUEST, isPokemonInPokedex),
+    takeEvery(SearchByNameForTypeTypes.SEARCH_BY_NAME_FOR_TYPE_REQUEST, searchByNameForType),
     // takeLatest(PokedexTypes.POKEDEX_REQUEST_LIST, isPokemonListInPokedex),
   ]);
 }
