@@ -6,19 +6,48 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import SearchActions from 'store/ducks/search';
 import SearchByNameForTypeActions from 'store/ducks/searchByNameForType';
-import PokedexActions from 'store/ducks/pokedex';
+// import PokedexActions from 'store/ducks/pokedex';
 import AddPokemonActions from 'store/ducks/addPokemon';
-import RemovePokemonActions from 'store/ducks/removePokemon';
+// import RemovePokemonActions from 'store/ducks/removePokemon';
 import LoaderActions from 'store/ducks/loader';
 
 /* Presentational */
-// import IconPlus from 'react-icons/lib/go/plus';
 import IconPlus from 'react-icons/lib/go/plus';
-
+import _ from 'lodash';
 import './styles.css';
 
 
 class ListItem extends Component {
+  static propTypes = {
+    pokemon: PropTypes.shape({
+      id: PropTypes.number,
+      name: PropTypes.string,
+      sprites: PropTypes.shape({
+        front_default: PropTypes.string,
+      }),
+    }).isRequired,
+
+    searchByNameForType: PropTypes.shape({
+      data: PropTypes.arrayOf(PropTypes.shape({})),
+    }).isRequired,
+
+    // pokedex: PropTypes.shape({
+    //   saved: PropTypes.bool,
+    // }).isRequired,
+
+    searchRequest: PropTypes.func.isRequired,
+    loaderLoadingOn: PropTypes.func.isRequired,
+    searchByNameForTypeRequest: PropTypes.func.isRequired,
+    addPokemonRequest: PropTypes.func.isRequired,
+    // removePokemonRequest: PropTypes.func.isRequired,
+  };
+
+  constructor(props) {
+    super(props);
+
+    this.checkAndGetPokemonOnList = _.throttle(this.checkAndGetPokemonOnList, 500);
+  }
+
   state = {
     image: require('assets/images/loading.gif'),
   };
@@ -53,7 +82,7 @@ class ListItem extends Component {
   };
 
   renderImage = result => (
-    <img className="list-item-image-tag" src={result === false ? this.state.image : result.image} alt="" />
+    <img className="list-item-image-tag" src={(result === false || result === undefined) ? this.state.image : result.image} alt="" />
   )
 
   render() {
@@ -62,10 +91,9 @@ class ListItem extends Component {
 
     let result = false;
 
-    if (data.length === this.props.searchByType.data.pokemon.length) {
-      result = this.checkAndGetPokemonOnList(pokemon.name, data);
-      console.log(result.image);
-    }
+    // if (data.length === this.props.searchByType.data.pokemon.length) {
+    result = this.checkAndGetPokemonOnList(pokemon.name, data);
+    // }
 
     return (
       <div className="listItemContainer">
@@ -83,25 +111,6 @@ class ListItem extends Component {
   }
 }
 
-ListItem.propTypes = {
-  pokemon: PropTypes.shape({
-    id: PropTypes.number,
-    name: PropTypes.string,
-    sprites: PropTypes.shape({
-      front_default: PropTypes.string,
-    }),
-  }).isRequired,
-
-  pokedex: PropTypes.shape({
-    saved: PropTypes.bool,
-  }).isRequired,
-
-  searchRequest: PropTypes.func.isRequired,
-  loaderLoadingOn: PropTypes.func.isRequired,
-  // addPokemonRequest: PropTypes.func.isRequired,
-  // removePokemonRequest: PropTypes.func.isRequired,
-};
-
 const mapStateToProps = state => ({
   search: state.search,
   pokedex: state.pokedex,
@@ -112,11 +121,11 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   searchRequest: pokemon => dispatch(SearchActions.searchRequest(pokemon)),
 
-  removePokemonRequest: (id, name) =>
-    dispatch(RemovePokemonActions.removePokemonRequest(id, name)),
+  // removePokemonRequest: (id, name) =>
+  //   dispatch(RemovePokemonActions.removePokemonRequest(id, name)),
 
   addPokemonRequest: pokemon =>
-    dispatch(RemovePokemonActions.addPokemonRequest(pokemon)),
+    dispatch(AddPokemonActions.addPokemonRequest(pokemon)),
 
   loaderLoadingOn: () => dispatch(LoaderActions.loaderLoadingOn()),
 
