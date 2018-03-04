@@ -61,6 +61,7 @@ export function* searchByNameOrId(action) {
       notify.show('Something went wrong, pokemon not found!', 'error', 3000);
     }
   } else {
+    notify.show('Something went wrong, pokemon not found!', 'error', 3000);
     yield put(ActionCreators.searchFailure());
   }
 
