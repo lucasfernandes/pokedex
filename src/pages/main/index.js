@@ -9,9 +9,6 @@ import { connect } from 'react-redux';
 import Header from 'pages/components/Header';
 import Details from 'pages/details';
 import List from 'pages/list';
-
-import Loadable from 'react-loading-overlay';
-
 import './styles.css';
 
 const renderDetails = (data, open) => (
@@ -19,27 +16,19 @@ const renderDetails = (data, open) => (
 );
 
 const Main = ({ search, open, loading }) => (
-
-// <Loadable
-//   active={isActive}
-//   spinner
-//   text='Loading your content...'
-//   >
-//   <p>Some content or children or something.</p>
-// </Loadable>
-
-  <Loadable
-    active={loading}
-    spinner
-    text="Loading your content"
-    className="loadable"
-  >
+  <div>
     <div className="container">
       {renderDetails(search, open)}
       <Header />
       <List />
     </div>
-  </Loadable>
+    <div
+      className={`loading-overlay ${loading === false && 'hidden'}`}
+    >
+      <img src={require('assets/images/loading.gif')} alt="" />
+      Loading
+    </div>
+  </div>
 );
 
 Main.propTypes = {

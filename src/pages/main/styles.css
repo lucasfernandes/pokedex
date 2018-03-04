@@ -10,20 +10,21 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
   display: block; }
 
+html {
+  background-color: #e0dede; }
+
 body {
   line-height: 1;
   display: flex;
   height: 100%;
   flex-direction: column; }
 
-#root {
-  height: 100%;
-  border: 1px solid black; }
-
 html, body {
   display: flex;
   min-height: 100%;
-  flex-direction: column; }
+  flex-direction: column;
+  height: 100%;
+  overflow: auto; }
 
 ol, ul {
   list-style: none; }
@@ -62,9 +63,45 @@ table {
   flex: 1;
   min-width: 50%;
   height: 100%;
+  overflow: auto;
   flex-direction: column;
   position: relative;
-  background: linear-gradient(#e0dede, #BAB5B5);
+  background-color: #e0dede;
   margin-right: auto;
-  margin-left: auto;
-  border: 1px solid red; }
+  margin-left: auto; }
+
+.loadable {
+  content: "";
+  display: block;
+  position: absolute;
+  /* could also be absolute */
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.9); }
+
+.loading-overlay {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  /* could also be absolute */
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: white;
+  font-size: 24px;
+  font-family: 'helvetica-neue'; }
+  .loading-overlay img {
+    margin-bottom: 15px;
+    width: 80px;
+    height: 80px; }
+
+.hidden {
+  display: none; }
