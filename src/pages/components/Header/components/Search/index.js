@@ -9,6 +9,7 @@ import SearchActions from 'store/ducks/search';
 import LoaderActions from 'store/ducks/loader';
 
 /* Presentational */
+import { notify } from 'react-notify-toast';
 import TextInput from './components/TexInput';
 import Button from './components/Button';
 import Loading from './components/Loading';
@@ -73,7 +74,7 @@ class Search extends Component {
           ? this.renderLoading()
           : this.renderButton()}
 
-        {error && this.renderError()}
+        {error && notify.show('Pokemon not found (probably pokeapi.co is not working!', 'error', 6000)}
       </div>
     );
   }

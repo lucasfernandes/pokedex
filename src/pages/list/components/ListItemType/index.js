@@ -70,8 +70,14 @@ class ListItem extends Component {
     data.find(item => item.name === name)
   )
 
+  validateImageReceived = image => (
+    image === null || image === undefined
+      ? require('assets/images/notfound.png')
+      : image
+  );
+
   renderButton = () => (
-    <IconPlus size={50} color="#D78989" className="poke-added" onClick={() => this.renderClick()} />
+    <IconPlus size={50} color="#D78989" className="poke-type-added" onClick={() => this.renderClick()} />
   );
 
   renderClick = () => {
@@ -80,9 +86,14 @@ class ListItem extends Component {
 
     return this.props.addPokemonRequest(id, name);
   };
-
   renderImage = result => (
-    <img className="list-item-image-tag" src={(result === false || result === undefined) ? this.state.image : result.image} alt="" />
+    <img
+      className="list-item-type-image-tag" 
+      src={(result === false || result === undefined)
+        ? this.state.image
+        : this.validateImageReceived(result.image)}
+      alt=""
+    />
   )
 
   render() {
@@ -96,14 +107,14 @@ class ListItem extends Component {
     // }
 
     return (
-      <div className="listItemContainer">
-        <button className="listItemButton" onClick={() => this.handleDetails()}>
-          <div className="list-item-title">{pokemon.name}</div>
-          <div className="list-item-image">
+      <div className="listItemTypeContainer">
+        <button className="listItemTypeButton" onClick={() => this.handleDetails()}>
+          <div className="list-item-type-title">{pokemon.name}</div>
+          <div className="list-item-type-image">
             {this.renderImage(result)}
           </div>
         </button>
-        <div className="list-item-added">
+        <div className="list-item-type-added">
           {this.renderButton(pokemon)}
         </div>
       </div>

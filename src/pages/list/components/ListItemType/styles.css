@@ -1,54 +1,53 @@
-.listItemContainer {
-  width: 259px;
-  height: 305px;
+.listItemTypeContainer {
+  width: 129.5px;
+  height: 152.5px;
   background-color: #3D3D40;
   border-radius: 6px;
   filter: drop-shadow(0px 1px 2px #6c6c6d);
   cursor: pointer; }
-  .listItemContainer .listItemButton {
+  .listItemTypeContainer .listItemTypeButton {
     flex: 1;
     width: 100%;
     background-color: transparent;
     border: 0;
     margin: 0;
     padding: 0;
-    background-color: tranparent;
     cursor: pointer; }
-  .listItemContainer .list-item-title {
+  .listItemTypeContainer .list-item-type-title {
     display: flex;
     flex: 1;
     flex-direction: column;
     align-items: center;
     font-family: 'Helvetica Neue Bold';
-    font-size: 20px;
+    font-size: 14px;
     color: #FFF;
-    padding-top: 20px;
+    padding-top: 14px;
     text-transform: capitalize; }
-  .listItemContainer .list-item-image {
+  .listItemTypeContainer .list-item-type-image {
     display: flex;
     flex: 1;
     flex-direction: column;
     align-items: center; }
-    .listItemContainer .list-item-image .list-item-image-tag {
-      width: 180px;
-      height: 180px; }
-  .listItemContainer .list-item-added {
+    .listItemTypeContainer .list-item-type-image .list-item-type-image-tag {
+      width: 80px;
+      height: 80px; }
+  .listItemTypeContainer .list-item-type-added {
     display: flex;
     flex: 1;
     align-items: center;
     justify-content: center;
     background-color: #6c6c6d;
-    height: 56px; }
-    .listItemContainer .list-item-added .poke-added {
-      width: 30px;
-      height: 30px;
+    height: 26px; }
+    .listItemTypeContainer .list-item-type-added .poke-type-added {
+      width: 15px;
+      height: 15px;
       border-radius: 50%;
       background-color: #FFF; }
-    .listItemContainer .list-item-added .poke-added:hover {
+    .listItemTypeContainer .list-item-type-added .poke-type-added:hover {
       transform: scale(1.1);
       filter: drop-shadow(0px 3px 2px #6c6c6d); }
-    .listItemContainer .list-item-added .item-list-poke-added {
+    .listItemTypeContainer .list-item-type-added .item-list-type-poke-added {
       background-color: #f09d9d; }
 
-.listItemContainer:hover {
+.listItemTypeContainer:hover {
   transform: scale(1.2); }

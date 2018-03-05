@@ -17,7 +17,7 @@
     display: flex;
     flex: 1;
     flex-direction: column;
-    min-width: 595px;
+    min-width: 450px;
     background-color: #FFF;
     border-radius: 20px;
     filter: drop-shadow(0 5px 10px #252522);
@@ -31,9 +31,8 @@
       display: flex;
       flex: 1;
       background-color: #3D3D40;
-      border-top-left-radius: 20px;
-      border-top-right-radius: 20px;
-      height: 450px;
+      border-top-left-radius: 18px;
+      border-top-right-radius: 18px;
       flex-direction: column;
       position: relative; }
       .detailsContainer .detailsCard .topCard .closeCard {
@@ -50,16 +49,13 @@
         transform: scale(1.1); }
       .detailsContainer .detailsCard .topCard .avatarBox {
         display: flex;
-        flex: 2;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        padding-left: 16px;
-        padding-right: 16px;
-        margin-top: 117px; }
+        margin-top: 57px; }
         .detailsContainer .detailsCard .topCard .avatarBox .avatar-ball {
-          width: 222px;
-          height: 222px;
+          width: 152px;
+          height: 152px;
           border-radius: 116px;
           background-color: #D77474;
           border: 6px solid #DCD2D2;
@@ -82,8 +78,8 @@
               cursor: pointer; }
         .detailsContainer .detailsCard .topCard .avatarBox .avatar-img {
           border-radius: 50%;
-          width: 222px;
-          height: 222px;
+          width: 152px;
+          height: 152px;
           object-fit: fit; }
         .detailsContainer .detailsCard .topCard .avatarBox .iconChevron {
           display: flex;
@@ -105,15 +101,16 @@
         flex: 1;
         flex-direction: column;
         align-items: center;
-        margin-top: 17px; }
+        margin-top: 17px;
+        margin-bottom: 30px; }
         .detailsContainer .detailsCard .topCard .avatarInfo .avatarName {
           font-family: 'Helvetica Neue Bold';
-          font-size: 28px;
+          font-size: 18px;
           color: #FFF;
           text-transform: capitalize; }
         .detailsContainer .detailsCard .topCard .avatarInfo .avatarHW {
           font-family: 'Helvetica Neue Bold';
-          font-size: 17px;
+          font-size: 14px;
           color: #A49C9C;
           line-height: 32px; }
     .detailsContainer .detailsCard .buttonContainer {

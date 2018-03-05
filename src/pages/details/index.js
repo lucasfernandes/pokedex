@@ -57,7 +57,7 @@ class Details extends Component {
           </div>
           <div className="avatarBox">
             <div className="iconChevron" title="Previous Level">
-              <Icons.GoChevronLeft size={60} color="#BABABA" />
+              <Icons.GoChevronLeft size={40} color="#BABABA" />
               <div>XuxaSauro</div>
             </div>
             <div className="avatar-ball">
@@ -73,7 +73,7 @@ class Details extends Component {
               }
             </div>
             <div className="iconChevron" title="Next Level">
-              <Icons.GoChevronRight size={60} color="#BABABA" />
+              <Icons.GoChevronRight size={40} color="#BABABA" />
               <div>Charmeleon</div>
             </div>
           </div>

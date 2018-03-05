@@ -13,32 +13,19 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 
 html {
-  // background: radial-gradient(rgb(224, 222, 222), rgb(243, 147, 147));
-  // min-height: 100%;
-  // background: linear-gradient(rgb(224, 222, 222), #BAB5B5);
   background-color: rgb(224, 222, 222);
 }
 
 body {
   line-height: 1;
   display: flex;
-  // min-height: 100vh;
   height: 100%;
   flex-direction: column;
-}
-
-#root {
-  // display: flex;
-  // flex: 1;
-  // height: 100%;
-  // overflow: auto;
-  // border: 1px solid black;
 }
 
 html, body {
   display: flex;
   min-height: 100%;
-  // height: 100%;
   flex-direction: column;
   height: 100%;
   overflow: auto;
@@ -92,33 +79,9 @@ table {
   overflow: auto;
   flex-direction: column;
   position: relative;
-  // background: linear-gradient(rgb(224, 222, 222), #BAB5B5);
   background-color: rgb(224, 222, 222);
   margin-right: auto;
   margin-left: auto;
-  // border: 1px solid red;
-
-}
-
-.loadable {
-  // height: 100%;
-  // position: absolute;
-  // top: 0;
-  // left:0;
-  // width: 100%;
-  // min-width: 100%;
-  // float: left;
-  // padding: 0;
-  // margin: 0;
-  content: "";
-  display: block;
-  position: absolute; /* could also be absolute */ 
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  z-index: 10;
-  background-color: rgba(0,0,0,0.9);
 }
 
 .loading-overlay {
@@ -131,7 +94,7 @@ table {
   left: 0;
   height: 100%;
   width: 100%;
-  z-index: 10;
+  z-index: 30;
   background-color: rgba(0,0,0,0.9);
   color: white;
   font-size: 24px;
@@ -142,9 +105,82 @@ table {
     width: 80px;
     height: 80px;
   }
-
 }
 
 .hidden {
   display: none;
 }
+
+.bug {
+  background-color: #739F3F;
+}
+
+.dragon {
+  background-color: #F06D58;
+}
+
+.fairy {
+  background-color: #FCB9E7;
+}
+
+.fire {
+  background-color: #FD7C24;
+}
+
+.ghost {
+  background-color: #7C62A3;
+}
+
+.ground {
+  background-color: #F7DF3F;
+}
+
+.normal {
+  background-color: #A3ABB0;
+}
+
+.psychic {
+  background-color: #F365B9;
+}
+
+.steel {
+  background-color: #9DB8B8;
+}
+
+.dark {
+  background-color: #71716F;
+}
+
+.electric {
+  background-color: #EDD436;
+}
+
+.fighting {
+  background-color: #D56623;
+}
+
+.flying {
+  background-color: #3CC5EF;
+}
+
+.grass {
+  background-color: #9BCD4F;
+}
+
+.ice {
+  background-color: #50C5E7;
+}
+
+.poison {
+  background-color: #B980CA;
+}
+
+.rock {
+  background-color: #A28D21;
+}
+
+.water {
+  background-color: #4592C6;
+}
+
+button:focus {outline:0 !important;}

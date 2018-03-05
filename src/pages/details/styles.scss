@@ -31,8 +31,8 @@
     display: flex;
     flex: 1;
     flex-direction: column;
-    min-width: 595px;
-    // min-width: 525px;
+    // min-width: 595px;
+    min-width: 450px;
     background-color: #FFF;
     border-radius: 20px;
     filter: drop-shadow(0 5px 10px #252522);    
@@ -48,9 +48,9 @@
       display: flex;
       flex: 1;
       background-color: #3D3D40;
-      border-top-left-radius: 20px;
-      border-top-right-radius: 20px;
-      height: 450px;
+      border-top-left-radius: 18px;
+      border-top-right-radius: 18px;
+      // height: 450px;
       flex-direction: column;
       position: relative;
 
@@ -72,17 +72,17 @@
 
       .avatarBox {
         display: flex;
-        flex: 2;
+        // flex: 2;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        padding-left: 16px;
-        padding-right: 16px;
-        margin-top: 117px;
+        // padding-left: 16px;
+        // padding-right: 16px;
+        margin-top: 57px;
 
         .avatar-ball {
-          width: 222px;
-          height: 222px;
+          width: 152px;
+          height: 152px;
           border-radius: 116px;
           background-color: #D77474;
           border: 6px solid #DCD2D2;
@@ -112,8 +112,8 @@
         
         .avatar-img {
           border-radius: 50%;
-          width: 222px;
-          height: 222px; 
+          width: 152px;
+          height: 152px; 
           object-fit: fit;
         }
 
@@ -145,17 +145,18 @@
         flex-direction: column;
         align-items: center;
         margin-top: 17px;
+        margin-bottom: 30px;
         
         .avatarName {
           font-family: 'Helvetica Neue Bold';
-          font-size: 28px;
+          font-size: 18px;
           color: #FFF;
           text-transform:capitalize;
         }
 
         .avatarHW {
           font-family: 'Helvetica Neue Bold';
-          font-size: 17px;
+          font-size: 14px;
           color: #A49C9C;
           line-height: 32px;
         }

@@ -8,6 +8,7 @@ import SearchByTypeActions from 'store/ducks/searchByType';
 import LoaderActions from 'store/ducks/loader';
 
 /* Presentational */
+import { notify } from 'react-notify-toast';
 import './styles.css';
 
 const renderStats = stats => (
@@ -46,7 +47,8 @@ const renderAbilities = (abilities, shortEffects) => (
     <div className="item-box-data">
       <button
         className="item-box-data-type-button"
-        onClick={() => alert(shortEffects[index].effect_entries[0].short_effect)}
+        onClick={() => notify.show(shortEffects[index].effect_entries[0].short_effect)}
+        // onClick={() => alert(shortEffects[index].effect_entries[0].short_effect)}
       >
         {item.ability.name}
       </button>
@@ -54,7 +56,14 @@ const renderAbilities = (abilities, shortEffects) => (
   ))
 );
 
-const Infos = ({ stats, types, abilities, short_effects, searchByTypeRequest, loaderLoadingOn }) => (
+const Infos = ({
+  stats,
+  types,
+  abilities,
+  short_effects,
+  searchByTypeRequest,
+  loaderLoadingOn 
+}) => (
   <div className="infosContainer">
     <div className="infosBox">
       <div className="first-box-info">
@@ -86,25 +95,6 @@ const Infos = ({ stats, types, abilities, short_effects, searchByTypeRequest, lo
           {renderStats(stats)}
         </div>
       </div>
-
-      {/* <div className="stats-box-info">
-        <div className="box-row">
-          <div className="box-row-data-stats">
-            <div className="item-box-data-stats alignRight">HP</div>
-            <div className="item-box-data-stats alignRight">ATK</div>
-            <div className="item-box-data-stats alignRight">DEF</div>
-            <div className="item-box-data-stats alignRight">SP ATK</div>
-            <div className="item-box-data-stats alignRight">SP DEF</div>
-            <div className="item-box-data-stats alignRight">SPEED</div>
-          </div>
-        </div>
-        <div className="divider-stats" />
-        <div className="box-row">
-          <div className="box-row-data-stats">
-            {renderStats(stats)}
-          </div>
-        </div>
-      </div> */}
     </div>
 
   </div>

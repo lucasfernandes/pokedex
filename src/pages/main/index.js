@@ -9,6 +9,7 @@ import { connect } from 'react-redux';
 import Header from 'pages/components/Header';
 import Details from 'pages/details';
 import List from 'pages/list';
+import Notifications from 'react-notify-toast';
 import './styles.css';
 
 const renderDetails = (data, open) => (
@@ -17,6 +18,7 @@ const renderDetails = (data, open) => (
 
 const Main = ({ search, open, loading }) => (
   <div>
+    <Notifications />
     <div className="container">
       {renderDetails(search, open)}
       <Header />

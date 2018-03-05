@@ -7,6 +7,7 @@ import firebase from 'config/FirebaseConfig';
 import { connect } from 'react-redux';
 
 /* Presentational */
+// import _ from 'lodash';
 import ListItem from './components/ListItem';
 import ListItemType from './components/ListItemType';
 import './styles.css';
@@ -23,6 +24,8 @@ class List extends Component {
 
   constructor() {
     super();
+    // this.renderListItemType = _.throttle(this.renderListItemType, 500);
+
     this.state = {
       pokemons: {},
     };
@@ -34,6 +37,7 @@ class List extends Component {
 
     pokemonsRef.on('value', (snap) => {
       if (snap.val() !== null) {
+        console.tron.log(snap.val());
         this.setState({ pokemons: snap.val() });
 
         // check there's in pokedex
@@ -55,31 +59,47 @@ class List extends Component {
   listItemsByType = data => (
     Object.values(data.pokemon).length === 0
       ? this.renderEmpty()
-      : Object.values(data.pokemon).map(item => (
-        <div className="list-aligner">
-          <ListItemType key={item.pokemon.name} pokemon={item.pokemon} />
-        </div>
-      ))
+      : Object.values(data.pokemon).map(item => this.renderListItemType(item))
   )
+
+  renderListItemType = item => (
+    <div className="list-aligner">
+      <ListItemType key={item.pokemon.name} pokemon={item.pokemon} />
+    </div>
+  );
 
   renderEmpty = () => (
-    <div>Sua pokedex está vazia</div>
+    <div className="empty">
+      <img src={require('assets/images/empty.png')} alt="" />
+      ...Nothing...
+    </div>
   )
 
-  renderTitle = typeName => (
-    this.props.searchByType.typeName === ''
-      ? 'Known Pokemons'
-      : `All ${typeName} pokemons`
-  )
+  renderTitle = (typeName) => {
+    let listClass = 'listTitle';
+    let title = 'Known Pokemons';
+    let back = null;
+
+    if (typeName !== '') {
+      listClass += ' listTitleType';
+      title = `${typeName} pokemons`;
+      back = <a href="window.location.reload(true)">Pokedex - </a>;
+    }
+
+    return (
+      <div className={`${listClass} ${typeName}`}>
+        {back}
+        {title}
+      </div>
+    );
+  }
 
   render() {
     const { typeName, data } = this.props.searchByType;
 
     return (
       <div className="listContainer">
-        <div className="listTitle">
-          {this.renderTitle(typeName)}
-        </div>
+        {this.renderTitle(typeName)}
         <div className="listItemsContainer">
           {this.props.searchByType.typeName === ''
             ? this.listItems()

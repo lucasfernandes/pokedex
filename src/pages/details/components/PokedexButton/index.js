@@ -55,8 +55,8 @@ class PokedexButton extends Component {
 
   renderButton = () => (
     this.props.pokedex.saved === false
-      ? <IconPlus size={50} color="#D78989" onClick={() => this.renderClick('add')} />
-      : <IconX size={50} color="#D78989" onClick={() => this.renderClick('remove')} />
+      ? <IconPlus size={30} color="#D78989" onClick={() => this.renderClick('add')} />
+      : <IconX size={30} color="#D78989" onClick={() => this.renderClick('remove')} />
   );
 
   render() {

@@ -1,74 +1,71 @@
-
-
-.listItemContainer {
-  width: 259px;
-  height: 305px;
+.listItemTypeContainer {
+  width: 129.5px;
+  height: 152.5px;
   background-color: #3D3D40;
   border-radius: 6px;
   filter: drop-shadow(0px 1px 2px #6c6c6d);
   cursor: pointer;
 
-  .listItemButton {
+  .listItemTypeButton {
     flex: 1;
     width: 100%;
     background-color: transparent;
     border: 0;
     margin: 0;
     padding: 0;
-    background-color: tranparent;
     cursor: pointer;
   }
 
-  .list-item-title {
+  .list-item-type-title {
     display: flex;
     flex: 1;
     flex-direction: column;
     align-items: center;
     font-family: 'Helvetica Neue Bold';
-    font-size: 20px;
+    font-size: 14px;
     color: #FFF;
-    padding-top: 20px;
+    padding-top: 14px;
     text-transform: capitalize;
   }
 
-  .list-item-image {
+  .list-item-type-image {
     display: flex;
     flex: 1;
     flex-direction: column;
     align-items: center;
 
-    .list-item-image-tag {
-      width: 180px;
-      height: 180px; 
+    .list-item-type-image-tag {
+      width: 80px;
+      height: 80px; 
     }
   }
 
-  .list-item-added {
+  .list-item-type-added {
     display: flex;
     flex: 1;
     align-items: center;
     justify-content: center;
     background-color: #6c6c6d;
-    height: 56px;
+    height: 26px;
 
-    .poke-added {
-      width: 30px;
-      height: 30px;
+    .poke-type-added {
+      width: 15px;
+      height: 15px;
       border-radius: 50%;
       background-color: #FFF;
     }
 
-    .poke-added:hover {
+    .poke-type-added:hover {
       transform: scale(1.1);
       filter: drop-shadow(0px 3px 2px #6c6c6d);
     }
 
-    .item-list-poke-added {
+    .item-list-type-poke-added {
       background-color: rgb(240, 157, 157);
     }
   }
 }
 
-.listItemContainer:hover {
+.listItemTypeContainer:hover {
   transform: scale(1.2);
 }
