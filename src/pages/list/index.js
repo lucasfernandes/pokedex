@@ -83,7 +83,7 @@ class List extends Component {
     if (typeName !== '') {
       listClass += ' listTitleType';
       title = `${typeName} pokemons`;
-      back = <a href="window.location.reload(true)">Pokedex - </a>;
+      back = <a href="https://pokedex-challenge.herokuapp.com">Pokedex - </a>;
     }
 
     return (
