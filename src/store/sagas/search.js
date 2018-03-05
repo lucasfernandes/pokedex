@@ -17,7 +17,6 @@ async function getShortEffect(name) {
 }
 
 function* getAllShotEffectsFromAbilities(abilities) {
-  // console.tron.log(abilities);
   const abilitiesValues = Object.values(abilities);
 
   const shortEffectsList = yield all(abilitiesValues.map(item =>
@@ -54,6 +53,8 @@ export function* searchByNameOrId(action) {
       const shortEffectsList = yield call(getAllShotEffectsFromAbilities, abilities);
       data.short_effects = shortEffectsList;
 
+      // console.log(data);
+
       yield put(ActionCreators.searchSuccess(data, inPokedex));
       yield put(DetailsCardActionCreators.detailsCardOpen());
     } catch (error) {
@@ -88,44 +89,7 @@ export function* searchByNameForType(action) {
       yield put(SearchByNameForTypeActionCreators.searchByNameForTypeFailure());
     }
   } catch (error) {
-    console.tron.log(error.message);
+    yield put(SearchByNameForTypeActionCreators.searchByNameForTypeFailure());
   }
 }
 
-/*  GET EVERYONE BUT TAKES TO MUCH TIME */
-
-// async function getPokemonData(name) {
-//   const response = await api.get(`pokemon/${name}`);
-//   return response.data;
-// }
-
-// function* getAllByNameFromApi(pokemons) {
-//   const pokemonValues = Object.values(pokemons);
-
-//   const pokemonsList = yield all(pokemonValues.map(item =>
-//     call(getPokemonData, item.pokemon.name)));
-
-//   return pokemonsList;
-// }
-
-
-// export function* searchAllByType(action) {
-//   const response = yield call(api.get, `type/${action.typeName}`);
-
-//   if (response.ok) {
-//     const pokemons = response.data.pokemon;
-
-//     try {
-//       const pokemonsList = yield call(getAllByNameFromApi, pokemons);
-//       console.tron.log(pokemonsList);
-//       yield put(SearchByTypeActionCreators.searchByTypeSuccess(action.typeName, pokemonsList));
-//     } catch (error) {
-//       console.tron.log(error.message);
-//       yield put(SearchByTypeActionCreators.searchByTypeFailure());
-//     }
-//   } else {
-//     yield put(SearchByTypeActionCreators.searchByTypeFailure());
-//   }
-
-//   yield put(LoaderActionCreators.loaderLoadingOff());
-// }

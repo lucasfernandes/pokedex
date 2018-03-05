@@ -4,6 +4,10 @@
   "private": true,
   "dependencies": {
     "apisauce": "^0.14.3",
+    "axios-mock-adapter": "^1.14.1",
+    "babel-jest": "^22.4.1",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
     "firebase": "^4.10.1",
     "lodash": "^4.17.5",
     "node-sass-chokidar": "^0.0.3",
@@ -22,8 +26,11 @@
     "reactotron-redux": "^1.13.0",
     "reactotron-redux-saga": "^1.13.0",
     "redux": "^3.7.2",
+    "redux-mock-store": "^1.5.1",
     "redux-saga": "^0.16.0",
-    "reduxsauce": "^0.7.0"
+    "redux-saga-tester": "^1.0.379",
+    "reduxsauce": "^0.7.0",
+    "sinon": "^4.4.2"
   },
   "scripts": {
     "build-css": "node-sass-chokidar --include-path ./src/pages --include-path --include-path ./node_modules src/pages/ -o src/pages/",
@@ -42,5 +49,13 @@
     "eslint-plugin-import": "^2.9.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.7.0"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/components/**/*.{js,jsx}",
+      "src/pages/**/*.{js,jsx}",
+      "src/store/ducks/**/*.{js,jsx}",
+      "src/store/sagas/**/*.{js,jsx}"
+    ]
   }
 }
