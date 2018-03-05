@@ -6,6 +6,11 @@
   filter: drop-shadow(0px 1px 2px #6c6c6d);
   cursor: pointer;
 
+  .hide-me {
+    background-color: red;
+  }
+
+  
   .listItemTypeButton {
     flex: 1;
     width: 100%;
@@ -15,7 +20,7 @@
     padding: 0;
     cursor: pointer;
   }
-
+  
   .list-item-type-title {
     display: flex;
     flex: 1;
@@ -27,19 +32,19 @@
     padding-top: 14px;
     text-transform: capitalize;
   }
-
+  
   .list-item-type-image {
     display: flex;
     flex: 1;
     flex-direction: column;
     align-items: center;
-
+    
     .list-item-type-image-tag {
       width: 80px;
       height: 80px; 
     }
   }
-
+  
   .list-item-type-added {
     display: flex;
     flex: 1;
@@ -47,22 +52,98 @@
     justify-content: center;
     background-color: #6c6c6d;
     height: 26px;
-
+    
     .poke-type-added {
       width: 15px;
       height: 15px;
       border-radius: 50%;
       background-color: #FFF;
     }
-
+    
     .poke-type-added:hover {
       transform: scale(1.1);
       filter: drop-shadow(0px 3px 2px #6c6c6d);
     }
-
+    
     .item-list-type-poke-added {
       background-color: rgb(240, 157, 157);
     }
+  }
+  
+  .hide-me {
+    display: none;
+  }
+  
+  .bug {
+    background-color: #739F3F;
+  }
+  
+  .dragon {
+    background-color: #F06D58;
+  }
+  
+  .fairy {
+    background-color: #FCB9E7;
+  }
+  
+  .fire {
+    background-color: #FD7C24;
+  }
+  
+  .ghost {
+    background-color: #7C62A3;
+  }
+  
+  .ground {
+    background-color: #F7DF3F;
+  }
+  
+  .normal {
+    background-color: #A3ABB0;
+  }
+  
+  .psychic {
+    background-color: #F365B9;
+  }
+  
+  .steel {
+    background-color: #9DB8B8;
+  }
+  
+  .dark {
+    background-color: #71716F;
+  }
+  
+  .electric {
+    background-color: #EDD436;
+  }
+  
+  .fighting {
+    background-color: #D56623;
+  }
+  
+  .flying {
+    background-color: #3CC5EF;
+  }
+  
+  .grass {
+    background-color: #9BCD4F;
+  }
+  
+  .ice {
+    background-color: #50C5E7;
+  }
+  
+  .poison {
+    background-color: #B980CA;
+  }
+  
+  .rock {
+    background-color: #A28D21;
+  }
+  
+  .water {
+    background-color: #4592C6;
   }
 }
 

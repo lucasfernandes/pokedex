@@ -59,12 +59,12 @@ class List extends Component {
   listItemsByType = data => (
     Object.values(data.pokemon).length === 0
       ? this.renderEmpty()
-      : Object.values(data.pokemon).map(item => this.renderListItemType(item))
+      : Object.values(data.pokemon).map((item, index) => this.renderListItemType(item, index))
   )
 
-  renderListItemType = item => (
+  renderListItemType = (item, index) => (
     <div className="list-aligner">
-      <ListItemType key={item.pokemon.name} pokemon={item.pokemon} />
+      <ListItemType key={item.pokemon.name} pokemon={item.pokemon} shouldHide={index <= 15 ? true : false} />
     </div>
   );
 

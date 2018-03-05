@@ -97,7 +97,8 @@ class ListItem extends Component {
   )
 
   render() {
-    const { pokemon } = this.props;
+    const { pokemon, shouldHide } = this.props;
+    const { typeName } = this.props.searchByType;
     const { data } = this.props.searchByNameForType;
 
     let result = false;
@@ -107,15 +108,15 @@ class ListItem extends Component {
     // }
 
     return (
-      <div className="listItemTypeContainer">
+      <div className={`listItemTypeContainer ${shouldHide !== false && 'hide-me'}`}>
         <button className="listItemTypeButton" onClick={() => this.handleDetails()}>
           <div className="list-item-type-title">{pokemon.name}</div>
           <div className="list-item-type-image">
             {this.renderImage(result)}
           </div>
         </button>
-        <div className="list-item-type-added">
-          {this.renderButton(pokemon)}
+        <div className={`list-item-type-added ${typeName}}`}>
+          {/* {this.renderButton(pokemon)} */}
         </div>
       </div>
     );
