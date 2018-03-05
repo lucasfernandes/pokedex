@@ -19,8 +19,8 @@ class Details extends Component {
       loading: PropTypes.bool,
       data: PropTypes.shape({
         name: PropTypes.string,
-        height: PropTypes.string,
-        weight: PropTypes.string,
+        height: PropTypes.number,
+        weight: PropTypes.number,
         sprites: PropTypes.shape({
           front_default: PropTypes.string,
         }),

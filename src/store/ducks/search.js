@@ -13,7 +13,7 @@ export default Creators;
 
 /* Initial State */
 const INITIAL_STATE = {
-  data: [],
+  data: {},
   loading: false,
   error: false,
   inPokedex: false,

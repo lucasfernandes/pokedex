@@ -9,6 +9,7 @@ import { reducer as loader } from './ducks/loader';
 import { reducer as addPokemon } from './ducks/addPokemon';
 import { reducer as removePokemon } from './ducks/removePokemon';
 import { reducer as pokedex } from './ducks/pokedex';
+import { reducer as list } from './ducks/list';
 
 import configureStore from './configureStore';
 import rootSaga from './sagas';
@@ -22,6 +23,7 @@ const rootReducer = combineReducers({
   addPokemon,
   removePokemon,
   pokedex,
+  list,
 });
 
 const store = configureStore(rootReducer, rootSaga);

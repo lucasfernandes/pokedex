@@ -5,9 +5,9 @@ import firebase from 'config/FirebaseConfig';
 
 /* Redux */
 import { connect } from 'react-redux';
+import ListActions from 'store/ducks/list';
 
 /* Presentational */
-// import _ from 'lodash';
 import ListItem from './components/ListItem';
 import ListItemType from './components/ListItemType';
 import './styles.css';
@@ -16,20 +16,13 @@ class List extends Component {
   static propTypes = {
     searchByType: PropTypes.shape({
       typeName: PropTypes.string,
-      data: PropTypes.arrayOf(PropTypes.shape({})),
+      data: PropTypes.shape({}),
     }).isRequired,
+    list: PropTypes.shape({
+      pokemonsList: PropTypes.arrayOf(PropTypes.shape({})),
+    }).isRequired,
+    listAdd: PropTypes.func.isRequired,
   };
-
-  static defaultProps = {};
-
-  constructor() {
-    super();
-    // this.renderListItemType = _.throttle(this.renderListItemType, 500);
-
-    this.state = {
-      pokemons: {},
-    };
-  }
 
   componentDidMount() {
     const rootRef = firebase.database().ref();
@@ -37,19 +30,15 @@ class List extends Component {
 
     pokemonsRef.on('value', (snap) => {
       if (snap.val() !== null) {
-        console.tron.log(snap.val());
-        this.setState({ pokemons: snap.val() });
-
-        // check there's in pokedex
-        // this.props.pokedexRequestList(snap.val());
+        this.props.listAdd(snap.val());
       }
     });
   }
 
-  listItems = () => (
-    Object.values(this.state.pokemons).length === 0
+  listItems = pokemonsList => (
+    Object.values(pokemonsList).length === 0
       ? this.renderEmpty()
-      : Object.values(this.state.pokemons).map(pokemon => (
+      : Object.values(pokemonsList).map(pokemon => (
         <div key={pokemon.id} className="list-aligner">
           <ListItem key={pokemon.id} pokemon={pokemon} />
         </div>
@@ -63,7 +52,7 @@ class List extends Component {
   )
 
   renderListItemType = item => (
-    <div className="list-aligner">
+    <div key={item.pokemon.name} className="list-aligner">
       <ListItemType key={item.pokemon.name} pokemon={item.pokemon} />
     </div>
   );
@@ -76,18 +65,16 @@ class List extends Component {
   )
 
   renderTitle = (typeName) => {
-    let listClass = 'listTitle';
     let title = 'Known Pokemons';
     let back = null;
 
     if (typeName !== '') {
-      listClass += ' listTitleType';
       title = `${typeName} pokemons`;
       back = <a href="https://pokedex-challenge.herokuapp.com">Pokedex - </a>;
     }
 
     return (
-      <div className={`${listClass} ${typeName}`}>
+      <div className={`listTitle ${typeName}`}>
         {back}
         {title}
       </div>
@@ -96,13 +83,16 @@ class List extends Component {
 
   render() {
     const { typeName, data } = this.props.searchByType;
+    const { pokemonsList } = this.props.list;
+
+    console.tron.log(Object.values(pokemonsList));
 
     return (
       <div className="listContainer">
         {this.renderTitle(typeName)}
         <div className="listItemsContainer">
           {this.props.searchByType.typeName === ''
-            ? this.listItems()
+            ? this.listItems(pokemonsList)
             : this.listItemsByType(data)}
         </div>
       </div>
@@ -112,7 +102,11 @@ class List extends Component {
 
 const mapStateToProps = state => ({
   searchByType: state.searchByType,
+  list: state.list,
 });
 
+const mapDispatchToProps = dispatch => ({
+  listAdd: pokemons => dispatch(ListActions.listAdd(pokemons)),
+});
 
-export default connect(mapStateToProps)(List);
+export default connect(mapStateToProps, mapDispatchToProps)(List);

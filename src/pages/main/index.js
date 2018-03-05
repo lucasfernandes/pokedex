@@ -35,7 +35,15 @@ const Main = ({ search, open, loading }) => (
 
 Main.propTypes = {
   search: PropTypes.shape({
-    data: PropTypes.arrayOf(PropTypes.shape({})),
+    loading: PropTypes.bool,
+    data: PropTypes.shape({
+      name: PropTypes.string,
+      height: PropTypes.number,
+      weight: PropTypes.number,
+      sprites: PropTypes.shape({
+        front_default: PropTypes.string,
+      }),
+    }),
   }).isRequired,
   open: PropTypes.bool.isRequired,
   loading: PropTypes.bool.isRequired,

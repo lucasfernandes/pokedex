@@ -1,6 +1,7 @@
 import { call, put } from 'redux-saga/effects';
 import ActionCreators from 'store/ducks/addPokemon';
 import RemovePokemonActionCreators from 'store/ducks/removePokemon';
+import ListActionCreators from 'store/ducks/list';
 import PokedexActionCreators from 'store/ducks/pokedex';
 import LoaderActionCreators from 'store/ducks/loader';
 import firebase from 'config/FirebaseConfig';
@@ -31,6 +32,7 @@ export function* removePokemon(action) {
 
     yield call([pokemonToRemove, pokemonToRemove.remove]);
     yield put(RemovePokemonActionCreators.removePokemonSuccess());
+    yield put(ListActionCreators.listRemove(action.name));
     yield put(PokedexActionCreators.pokedexRequest(action.name));
   } catch (error) {
     yield put(RemovePokemonActionCreators.removePokemonFailure());

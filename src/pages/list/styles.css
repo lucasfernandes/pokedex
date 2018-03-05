@@ -15,12 +15,9 @@
     border-bottom: 7px solid #3D3D40;
     padding: 10px;
     text-transform: capitalize; }
-  .listContainer .listTitleType {
-    color: white;
-    padding-bottom: 8px; }
-    .listContainer .listTitleType a {
+    .listContainer .listTitle a {
       text-decoration-style: none;
-      color: #3D3D40;
+      color: #918484;
       text-decoration: none; }
   .listContainer .listItemsContainer {
     display: flex;

@@ -15,7 +15,7 @@ export default Creators;
 /* Initial State */
 const INITIAL_STATE = {
   typeName: '',
-  data: [],
+  data: {},
   loading: false,
   error: false,
 };

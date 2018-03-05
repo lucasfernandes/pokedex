@@ -6,16 +6,13 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import SearchActions from 'store/ducks/search';
 import SearchByNameForTypeActions from 'store/ducks/searchByNameForType';
-// import PokedexActions from 'store/ducks/pokedex';
 import AddPokemonActions from 'store/ducks/addPokemon';
-// import RemovePokemonActions from 'store/ducks/removePokemon';
 import LoaderActions from 'store/ducks/loader';
 
 /* Presentational */
-import IconPlus from 'react-icons/lib/go/plus';
 import _ from 'lodash';
+import typecolors from 'pages/typecolors';
 import './styles.css';
-
 
 class ListItem extends Component {
   static propTypes = {
@@ -31,15 +28,13 @@ class ListItem extends Component {
       data: PropTypes.arrayOf(PropTypes.shape({})),
     }).isRequired,
 
-    // pokedex: PropTypes.shape({
-    //   saved: PropTypes.bool,
-    // }).isRequired,
+    searchByType: PropTypes.shape({
+      typeName: PropTypes.string,
+    }).isRequired,
 
     searchRequest: PropTypes.func.isRequired,
     loaderLoadingOn: PropTypes.func.isRequired,
     searchByNameForTypeRequest: PropTypes.func.isRequired,
-    addPokemonRequest: PropTypes.func.isRequired,
-    // removePokemonRequest: PropTypes.func.isRequired,
   };
 
   constructor(props) {
@@ -76,16 +71,6 @@ class ListItem extends Component {
       : image
   );
 
-  renderButton = () => (
-    <IconPlus size={50} color="#D78989" className="poke-type-added" onClick={() => this.renderClick()} />
-  );
-
-  renderClick = () => {
-    const { pokemon } = this.props;
-    const { id, name } = pokemon;
-
-    return this.props.addPokemonRequest(id, name);
-  };
   renderImage = result => (
     <img
       className="list-item-type-image-tag" 
@@ -99,12 +84,10 @@ class ListItem extends Component {
   render() {
     const { pokemon } = this.props;
     const { data } = this.props.searchByNameForType;
+    const { typeName } = this.props.searchByType;
 
     let result = false;
-
-    // if (data.length === this.props.searchByType.data.pokemon.length) {
     result = this.checkAndGetPokemonOnList(pokemon.name, data);
-    // }
 
     return (
       <div className="listItemTypeContainer">
@@ -114,9 +97,7 @@ class ListItem extends Component {
             {this.renderImage(result)}
           </div>
         </button>
-        <div className="list-item-type-added">
-          {this.renderButton(pokemon)}
-        </div>
+        <div className="list-item-type-added" style={typecolors[typeName]} />
       </div>
     );
   }
@@ -131,9 +112,6 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   searchRequest: pokemon => dispatch(SearchActions.searchRequest(pokemon)),
-
-  // removePokemonRequest: (id, name) =>
-  //   dispatch(RemovePokemonActions.removePokemonRequest(id, name)),
 
   addPokemonRequest: pokemon =>
     dispatch(AddPokemonActions.addPokemonRequest(pokemon)),

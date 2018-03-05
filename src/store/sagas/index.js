@@ -1,4 +1,4 @@
-import { all, takeLatest, takeEvery, tak } from 'redux-saga/effects';
+import { all, takeLatest, takeEvery } from 'redux-saga/effects';
 
 /* Types */
 import { Types as SearchTypes } from 'store/ducks/search';
@@ -25,6 +25,5 @@ export default function* root() {
     takeLatest(RemovePokemonTypes.REMOVE_POKEMON_REQUEST, removePokemon),
     takeLatest(PokedexTypes.POKEDEX_REQUEST, isPokemonInPokedex),
     takeEvery(SearchByNameForTypeTypes.SEARCH_BY_NAME_FOR_TYPE_REQUEST, searchByNameForType),
-    // takeLatest(PokedexTypes.POKEDEX_REQUEST_LIST, isPokemonListInPokedex),
   ]);
 }

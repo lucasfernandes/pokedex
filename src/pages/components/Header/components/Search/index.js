@@ -1,7 +1,6 @@
 /* Core */
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import _ from 'lodash';
 
 /* Redux */
 import { connect } from 'react-redux';
@@ -22,7 +21,6 @@ class Search extends Component {
     search: PropTypes.shape({
       loading: PropTypes.bool,
       error: PropTypes.bool,
-      // data: PropTypes.arrayOf(PropTypes.shape({ login: PropTypes.string })),
     }).isRequired,
   };
 
@@ -59,7 +57,7 @@ class Search extends Component {
   );
 
   render() {
-    const { data, loading, error } = this.props.search;
+    const { loading, error } = this.props.search;
 
     return (
       <div className="searchContainer">

@@ -5,25 +5,16 @@ import PropTypes from 'prop-types';
 /* Redux */
 import { connect } from 'react-redux';
 import SearchActions from 'store/ducks/search';
-import PokedexActions from 'store/ducks/pokedex';
-import AddPokemonActions from 'store/ducks/addPokemon';
 import RemovePokemonActions from 'store/ducks/removePokemon';
 import LoaderActions from 'store/ducks/loader';
 
 /* Presentational */
-// import IconPlus from 'react-icons/lib/go/plus';
 import IconX from 'react-icons/lib/go/x';
 
 import './styles.css';
 
 
 class ListItem extends Component {
-  state = {};
-
-  componentDidMount() {
-    // this.props.pokedexRequest(this.props.pokemon.name);
-  }
-
   handleDetails = () => {
     const { pokemon } = this.props;
     this.props.loaderLoadingOn();
@@ -78,8 +69,7 @@ ListItem.propTypes = {
 
   searchRequest: PropTypes.func.isRequired,
   loaderLoadingOn: PropTypes.func.isRequired,
-  // addPokemonRequest: PropTypes.func.isRequired,
-  // removePokemonRequest: PropTypes.func.isRequired,
+  removePokemonRequest: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({

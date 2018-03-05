@@ -14,7 +14,7 @@ import './styles.css';
 const renderStats = stats => (
   stats.reverse().map(item => (
     <div
-      key={item.base_stat}
+      key={`${item.base_stat}-${item.stat.name}`}
       className="stats-item stats-right"
     >
       {item.base_stat}
@@ -30,6 +30,7 @@ const renderTypeClick = (searchByTypeRequest, typeName, loaderLoadingOn) => {
 const renderTypes = (types, searchByTypeRequest, loaderLoadingOn) => (
   types.map(item => (
     <div
+      key={item.type.name}
       className={`item-box-data ${item.type.name}`}
     >
       <button
@@ -44,11 +45,10 @@ const renderTypes = (types, searchByTypeRequest, loaderLoadingOn) => (
 
 const renderAbilities = (abilities, shortEffects) => (
   abilities.map((item, index) => (
-    <div className="item-box-data">
+    <div key={item.ability.name} className="item-box-data">
       <button
         className="item-box-data-type-button"
         onClick={() => notify.show(shortEffects[index].effect_entries[0].short_effect)}
-        // onClick={() => alert(shortEffects[index].effect_entries[0].short_effect)}
       >
         {item.ability.name}
       </button>
@@ -60,9 +60,9 @@ const Infos = ({
   stats,
   types,
   abilities,
-  short_effects,
+  short_effects: shortEffects,
   searchByTypeRequest,
-  loaderLoadingOn 
+  loaderLoadingOn,
 }) => (
   <div className="infosContainer">
     <div className="infosBox">
@@ -77,7 +77,7 @@ const Infos = ({
         <div className="box-row">
           <div className="box-row-title">Abilities</div>
           <div className="box-row-data">
-            {renderAbilities(abilities, short_effects)}
+            {renderAbilities(abilities, shortEffects)}
           </div>
         </div>
       </div>
@@ -101,9 +101,22 @@ const Infos = ({
 );
 
 Infos.propTypes = {
-  // types: PropTypes.arrayOf(PropTypes.shape({
+  stats: PropTypes.arrayOf(PropTypes.shape({
+    base_name: PropTypes.string,
+    stat: PropTypes.shape({ name: PropTypes.string }),
+  })).isRequired,
+  types: PropTypes.arrayOf(PropTypes.shape({
+    type: PropTypes.shape({ name: PropTypes.string }),
+  })).isRequired,
+  abilities: PropTypes.arrayOf(PropTypes.shape({
+    ability: PropTypes.shape({ name: PropTypes.string }),
+  })).isRequired,
+  short_effects: PropTypes.arrayOf(PropTypes.shape({
+    effect_entries: PropTypes.arrayOf(PropTypes.shape({ short_effect: PropTypes.string })),
+  })).isRequired,
 
-  // })
+  searchByTypeRequest: PropTypes.func.isRequired,
+  loaderLoadingOn: PropTypes.func.isRequired,
 };
 
 const mapDispatchToProps = dispatch => ({
