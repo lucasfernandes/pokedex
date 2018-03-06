@@ -54,18 +54,6 @@ export function* searchByNameOrId(action) {
       const shortEffectsList = yield call(getAllShortEffectsFromAbilities, abilities);
       data.short_effects = shortEffectsList;
 
-      // FODA-SE
-      const resultSpecies = yield call(api.get, `pokemon-species/${action.pokemon}`);
-      if (resultSpecies.ok) {
-        const { evolves_from_species: { name: evolvesFrom } } = resultSpecies.data.evolves_from_species.name;
-
-        const chain = {};
-        chain.evolvesFrom = (evolvesFrom !== null || evolvesFrom !== undefined) && evolvesFrom;
-        console.tron.log(chain);
-
-        data.chain = chain;
-      }
-
       yield put(ActionCreators.searchSuccess(data, inPokedex));
       yield put(DetailsCardActionCreators.detailsCardOpen());
     } catch (error) {
@@ -74,7 +62,6 @@ export function* searchByNameOrId(action) {
     }
   } else {
     yield put(ActionCreators.searchFailure());
-    // notify.show('Something went wrong, pokemon not found!', 'error', 3000);
   }
 
   yield put(LoaderActionCreators.loaderLoadingOff());

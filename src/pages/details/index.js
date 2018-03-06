@@ -44,28 +44,28 @@ class Details extends Component {
     !loading && this.renderDetails(data)
   )
 
-  renderEvolvesFrom = data => (
-    data.chain.evolvesFrom !== null &&
-      <div className="iconChevron" title="Previous Level">
-        <Icons.GoChevronLeft
-          size={40}
-          color="#BABABA"
-          onClick={() => {
-            this.props.loaderLoadingOn();
-            this.props.searchRequest(data.chain.evolvesFrom);
-          }}
-        />
-        <div>{data.chain.evolvesFrom}</div>
-      </div>
-  )
+  // renderEvolvesFrom = data => (
+  //   data.chain.evolvesFrom !== null &&
+  //     <div className="iconChevron" title="Previous Level">
+  //       <Icons.GoChevronLeft
+  //         size={40}
+  //         color="#BABABA"
+  //         onClick={() => {
+  //           this.props.loaderLoadingOn();
+  //           this.props.searchRequest(data.chain.evolvesFrom);
+  //         }}
+  //       />
+  //       <div>{data.chain.evolvesFrom}</div>
+  //     </div>
+  // )
 
-  renderEvolvesTo = data => (
-    data.chain.evolvesFrom !== null &&
-      <div className="iconChevron" title="Next Level">
-        {/* <Icons.GoChevronRight size={40} color="#BABABA" /> */}
-        {/* <div>{data.chain.evolvesTo}</div> */}
-      </div>
-  )
+  // renderEvolvesTo = data => (
+  //   data.chain.evolvesFrom !== null &&
+  //     <div className="iconChevron" title="Next Level">
+  //       <Icons.GoChevronRight size={40} color="#BABABA" />
+  //       <div>{data.chain.evolvesTo}</div>
+  //     </div>
+  // )
 
 
   renderDetails = data => (
@@ -77,7 +77,7 @@ class Details extends Component {
           </div>
           <div className="avatarBox">
 
-            {this.renderEvolvesFrom(data)}
+            {/* {this.renderEvolvesFrom(data)} */}
 
             <div className="avatar-ball">
               <img
@@ -91,7 +91,7 @@ class Details extends Component {
                 </div>
               }
             </div>
-            {this.renderEvolvesTo(data)}
+            {/* {this.renderEvolvesTo(data)} */}
           </div>
           <div className="avatarInfo">
             <div className="avatarName">
