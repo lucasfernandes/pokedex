@@ -156,61 +156,121 @@
       }
     }
 
-    .statsContainer {
+    .statsContainer2 {
       display: flex;
       flex: 1;
       flex-direction: row;
-      width: 35%;
-      margin-top: 10px;
-    }
-    
-    .stats {
-      display: flex;
-      flex: 1;
-      flex-direction: column;
-      padding: 0.25px;
-      // line-height: 25px;
-    }
-    
-    .statsLeft {
-      align-items: flex-end;
+      margin-top: 7px;
+      font-family: 'helvetica-neue';
+
+      .stats-item2 {
+        background-color: rgb(168, 166, 168);
+        border: 1px solid #FFF;
+        font-size: 14px;
+
+        .stats-item-title2 {
+          display: flex;
+          flex: 1;
+          // width: 100%;
+          color: rgb(225, 245, 255);
+          padding: 5px;
+          padding-right: 7px;
+          padding-left: 7px;
+        }
+
+        .stats-item-value2 {
+          border-top: 1px solid #FFF;
+          padding: 5px;
+          padding-right: 7px;
+          padding-left: 7px;
+          background-color: rgb(255, 101, 101);
+          color: #FFF;
+        }
+      }
     }
 
-    .stats-item-left {
-      text-align: right;
-    }
+  // <div className="statsContainer2">
+  //   <div className="stats-item2">
+  //     <div className="stats-item-title2">HP</div>
+  //     <div className="stats-item-value2">70</div>
+  //   </div>
 
-    .stats-item {
-      color: white;
-      border: 0.5px solid #FFF;
-      width: 100%;
-      padding: 5px;
-      padding-right: 5px;
-      font-size: 14px;
-      background-color: rgb(168, 166, 168);
-    }
+  //   <div className="stats-item2">
+  //     <div className="stats-item-title2">HP</div>
+  //     <div className="stats-item-value2">70</div>
+  //   </div>
+
+  //   <div className="stats-item2">
+  //     <div className="stats-item-title2">HP</div>
+  //     <div className="stats-item-value2">70</div>
+  //   </div>
+
+  //   <div className="stats-item2">
+  //     <div className="stats-item-title2">HP</div>
+  //     <div className="stats-item-value2">70</div>
+  //   </div>
+
+  //   <div className="stats-item2">
+  //     <div className="stats-item-title2">HP</div>
+  //     <div className="stats-item-value2">70</div>
+  //   </div>
+  // </div>
+
+    // .statsContainer {
+    //   display: flex;
+    //   flex: 1;
+    //   flex-direction: row;
+    //   width: 35%;
+    //   margin-top: 10px;
+    // }
+    
+    // .stats {
+    //   display: flex;
+    //   flex: 1;
+    //   flex-direction: column;
+    //   padding: 0.25px;
+    //   // line-height: 25px;
+    // }
+    
+    // .statsLeft {
+    //   align-items: flex-end;
+    // }
+
+    // .stats-item-left {
+    //   text-align: right;
+    // }
+
+    // .stats-item {
+    //   color: white;
+    //   border: 0.5px solid #FFF;
+    //   width: 100%;
+    //   padding: 5px;
+    //   padding-right: 5px;
+    //   font-size: 14px;
+    //   background-color: rgb(168, 166, 168);
+    // }
 
     
-    .stats-item-left:first-child {
-      border-top-left-radius: 10px;
-    }
+    // .stats-item-left:first-child {
+    //   border-top-left-radius: 10px;
+    // }
     
-    .stats-item-left:last-child {
-      border-bottom-left-radius: 10px;
-    }
+    // .stats-item-left:last-child {
+    //   border-bottom-left-radius: 10px;
+    // }
     
-    .stats-right {
-      padding-right: 0;
-      padding-left: 5px;
-    }
+    // .stats-right {
+    //   padding-right: 0;
+    //   padding-left: 5px;
+    // }
 
-    .stats-right:first-child {
-      border-top-right-radius: 10px;
-    }
+    // .stats-right:first-child {
+    //   border-top-right-radius: 10px;
+    // }
 
-    .stats-right:last-child {
-      border-bottom-right-radius: 10px;
-    }
+    // .stats-right:last-child {
+    //   border-bottom-right-radius: 10px;
+    // }
 
   }
 }

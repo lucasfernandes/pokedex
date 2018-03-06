@@ -7,10 +7,12 @@ import './styles.css';
 
 const Header = () => (
   <div className="headerContainer">
-    <div className="title">PokeDéx</div>
+    <div className="title"><a href="https://pokedex-challenge.herokuapp.com">PokeDéx</a></div>
     <div className="blackSlice" />
     <div className="pokeball">
-      <img src={require('assets/images/pokeball.png')} alt="" />
+      <a href="https://pokedex-challenge.herokuapp.com">
+        <img src={require('assets/images/pokeball.png')} alt="" />
+      </a>
     </div>
     <Search />
   </div>

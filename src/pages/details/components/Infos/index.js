@@ -9,17 +9,36 @@ import LoaderActions from 'store/ducks/loader';
 
 /* Presentational */
 import { notify } from 'react-notify-toast';
+
 import './styles.css';
 
 const renderStats = stats => (
-  stats.reverse().map(item => (
-    <div
-      key={`${item.base_stat}-${item.stat.name}`}
-      className="stats-item stats-right"
-    >
-      {item.base_stat}
+  <div className="statsContainer2">
+    <div className="stats-item2">
+      <div className="stats-item-title2">HP</div>
+      <div className="stats-item-value2">{stats[5].base_stat}</div>
     </div>
-  ))
+    <div className="stats-item2">
+      <div className="stats-item-title2">AT</div>
+      <div className="stats-item-value2">{stats[4].base_stat}</div>
+    </div>
+    <div className="stats-item2">
+      <div className="stats-item-title2">DF</div>
+      <div className="stats-item-value2">{stats[3].base_stat}</div>
+    </div>
+    <div className="stats-item2">
+      <div className="stats-item-title2">SA</div>
+      <div className="stats-item-value2">{stats[2].base_stat}</div>
+    </div>
+    <div className="stats-item2">
+      <div className="stats-item-title2">SD</div>
+      <div className="stats-item-value2">{stats[1].base_stat}</div>
+    </div>
+    <div className="stats-item2">
+      <div className="stats-item-title2">SP</div>
+      <div className="stats-item-value2">{stats[0].base_stat}</div>
+    </div>
+  </div>
 );
 
 const renderTypeClick = (searchByTypeRequest, typeName, loaderLoadingOn) => {
@@ -82,19 +101,8 @@ const Infos = ({
         </div>
       </div>
 
-      <div className="statsContainer">
-        <div className="stats statsLeft">
-          <div className="stats-item stats-item-left">HP</div>
-          <div className="stats-item stats-item-left">ATK</div>
-          <div className="stats-item stats-item-left">DEF</div>
-          <div className="stats-item stats-item-left">SP ATK</div>
-          <div className="stats-item stats-item-left">SP DEF</div>
-          <div className="stats-item stats-item-left">SPEED</div>
-        </div>
-        <div className="stats">
-          {renderStats(stats)}
-        </div>
-      </div>
+      {renderStats(stats)}
+
     </div>
 
   </div>

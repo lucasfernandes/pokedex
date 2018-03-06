@@ -2,7 +2,6 @@
   content: "";
   display: block;
   position: fixed;
-  /* could also be absolute */
   top: 0;
   left: 0;
   height: 100%;
@@ -17,7 +16,7 @@
     display: flex;
     flex: 1;
     flex-direction: column;
-    min-width: 450px;
+    min-width: 400px;
     background-color: #FFF;
     border-radius: 20px;
     filter: drop-shadow(0 5px 10px #252522);
@@ -41,7 +40,7 @@
         padding: 5px;
         background-color: #252522;
         position: absolute;
-        top: 25px;
+        top: 28px;
         right: 30px;
         filter: drop-shadow(0 5px 10px #252522);
         cursor: pointer; }
@@ -50,9 +49,9 @@
       .detailsContainer .detailsCard .topCard .avatarBox {
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: space-around;
         align-items: center;
-        margin-top: 57px; }
+        margin-top: 47px; }
         .detailsContainer .detailsCard .topCard .avatarBox .avatar-ball {
           width: 152px;
           height: 152px;
@@ -92,8 +91,9 @@
           filter: drop-shadow(1px 5px 7px #8F8F8F);
           transform: scale(1.1); }
         .detailsContainer .detailsCard .topCard .avatarBox .iconChevron div {
+          padding-top: 5px;
           font-family: 'Helvetica Neue Bold';
-          font-size: 14px;
+          font-size: 12px;
           color: #FFF;
           text-transform: capitalize; }
       .detailsContainer .detailsCard .topCard .avatarInfo {

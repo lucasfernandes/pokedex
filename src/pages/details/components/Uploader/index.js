@@ -20,10 +20,10 @@ class Uploader extends Component {
   handleUploadStart = () => this.props.loaderLoadingOn();
 
   handleUploadSuccess = async (filename) => {
-    const { id, name, favorite } = this.props.data;
+    const { id, name } = this.props.data;
     const pokemonImage = await pokemonRef.child(filename).getDownloadURL();
 
-    this.props.addPokemonRequest(id, name, pokemonImage, false);
+    this.props.addPokemonRequest(id, name, pokemonImage);
     this.props.searchRequest(this.props.data.name);
   };
 
@@ -46,8 +46,8 @@ class Uploader extends Component {
 const mapDispatchToProps = dispatch => ({
   loaderLoadingOn: () => dispatch(LoaderActions.loaderLoadingOn()),
   searchRequest: pokemon => dispatch(SearchActions.searchRequest(pokemon)),
-  addPokemonRequest: (id, name, image, favorite) =>
-    dispatch(AddPokemonActions.addPokemonRequest(id, name, image, favorite)),
+  addPokemonRequest: (id, name, image) =>
+    dispatch(AddPokemonActions.addPokemonRequest(id, name, image)),
 });
 
 export default connect(null, mapDispatchToProps)(Uploader);

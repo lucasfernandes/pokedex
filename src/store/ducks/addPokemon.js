@@ -3,7 +3,7 @@ import { createActions, createReducer } from 'reduxsauce';
 /* Types & Creators */
 
 const { Types, Creators } = createActions({
-  addPokemonRequest: ['id', 'name', 'image', 'favorite'],
+  addPokemonRequest: ['id', 'name', 'image'],
   addPokemonSuccess: null,
   addPokemonFailure: null,
 });

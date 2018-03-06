@@ -5,6 +5,7 @@ import ListActionCreators from 'store/ducks/list';
 import PokedexActionCreators from 'store/ducks/pokedex';
 import LoaderActionCreators from 'store/ducks/loader';
 import firebase from 'config/FirebaseConfig';
+import { notify } from 'react-notify-toast';
 
 const rootRef = firebase.database().ref();
 const pokemonsRef = rootRef.child('pokemons');
@@ -19,8 +20,10 @@ export function* addOrUpdatePokemon(action) {
     yield call([pokemonsRef, pokemonsRef.update], pokemon);
     yield put(ActionCreators.addPokemonSuccess());
     yield put(PokedexActionCreators.pokedexRequest(action.name));
+    notify.show('Pokemon catched!', 'success', 3000);
   } catch (error) {
     yield put(ActionCreators.addPokemonFailure());
+    notify.show('Something went wrong, pokemon was not catched!', 'error', 3000);
   }
 
   yield put(LoaderActionCreators.loaderLoadingOff());
@@ -34,8 +37,10 @@ export function* removePokemon(action) {
     yield put(RemovePokemonActionCreators.removePokemonSuccess());
     yield put(ListActionCreators.listRemove(action.name));
     yield put(PokedexActionCreators.pokedexRequest(action.name));
+    notify.show('Pokemon released!', 'success', 3000);
   } catch (error) {
     yield put(RemovePokemonActionCreators.removePokemonFailure());
+    notify.show('Something went wrong, pokemon was not released', 'error', 3000);
   }
 
   yield put(LoaderActionCreators.loaderLoadingOff());
@@ -61,14 +66,3 @@ export function* isPokemonInPokedex(action) {
   }
 }
 
-// export function* isPokemonListInPokedex(action) {
-  // try {
-  //   const pokemonName = action.pokemon;
-  //   const result = yield call(checkIsInPokedex, pokemonName);
-  //   const saved = !!result.val();
-
-  //   yield put(PokedexActionCreators.pokedexSuccess(saved));
-  // } catch (error) {
-  //   yield put(PokedexActionCreators.pokedexFailure());
-  // }
-// }

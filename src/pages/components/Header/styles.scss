@@ -5,8 +5,6 @@
   flex-direction: column;
   justify-content: flex-end;
   background-color: #FD2017;
-  // border-top-left-radius: 20px;
-  // border-top-right-radius: 20px;
 
   .blackSlice {
     background-color: #3D3D40;
@@ -39,5 +37,10 @@
     height: 50px;
     margin-bottom: 65px;
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 5px #171719;
+    
+    a {
+      text-decoration: none;
+      color: #FFF;
+    }
   }
 }

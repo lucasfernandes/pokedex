@@ -5,12 +5,15 @@ import PropTypes from 'prop-types';
 /* Redux */
 import { connect } from 'react-redux';
 import DetailsCardActions from 'store/ducks/detailsCard';
+import SearchActions from 'store/ducks/search';
+import LoaderActions from 'store/ducks/loader';
 
 /* Presentational */
 import * as Icons from 'react-icons/lib/go';
 import Uploader from './components/Uploader';
 import PokedexButton from './components/PokedexButton';
 import Infos from './components/Infos';
+
 import './styles.css';
 
 class Details extends Component {
@@ -38,14 +41,31 @@ class Details extends Component {
   );
 
   renderContent = (loading, data) => (
-    loading
-      ? this.renderLoading()
-      : this.renderDetails(data)
+    !loading && this.renderDetails(data)
   )
 
-  renderLoading = () => (
-    <div styles="display:flex; flex: 1; selfAlign: center;">Loading</div>
-  );
+  renderEvolvesFrom = data => (
+    data.chain.evolvesFrom !== null &&
+      <div className="iconChevron" title="Previous Level">
+        <Icons.GoChevronLeft
+          size={40}
+          color="#BABABA"
+          onClick={() => {
+            this.props.loaderLoadingOn();
+            this.props.searchRequest(data.chain.evolvesFrom);
+          }}
+        />
+        <div>{data.chain.evolvesFrom}</div>
+      </div>
+  )
+
+  renderEvolvesTo = data => (
+    data.chain.evolvesFrom !== null &&
+      <div className="iconChevron" title="Next Level">
+        {/* <Icons.GoChevronRight size={40} color="#BABABA" /> */}
+        {/* <div>{data.chain.evolvesTo}</div> */}
+      </div>
+  )
 
 
   renderDetails = data => (
@@ -53,13 +73,12 @@ class Details extends Component {
       <div className="detailsCard">
         <div className="topCard">
           <div className="closeCard">
-            <Icons.GoX size={25} color="#FFF" onClick={() => this.closeDetails()} />
+            <Icons.GoX size={20} color="#FFF" onClick={() => this.closeDetails()} />
           </div>
           <div className="avatarBox">
-            <div className="iconChevron" title="Previous Level">
-              <Icons.GoChevronLeft size={40} color="#BABABA" />
-              <div>XuxaSauro</div>
-            </div>
+
+            {this.renderEvolvesFrom(data)}
+
             <div className="avatar-ball">
               <img
                 className="avatar-img"
@@ -72,10 +91,7 @@ class Details extends Component {
                 </div>
               }
             </div>
-            <div className="iconChevron" title="Next Level">
-              <Icons.GoChevronRight size={40} color="#BABABA" />
-              <div>Charmeleon</div>
-            </div>
+            {this.renderEvolvesTo(data)}
           </div>
           <div className="avatarInfo">
             <div className="avatarName">
@@ -119,6 +135,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   detailsCardClose: () => dispatch(DetailsCardActions.detailsCardClose()),
+  searchRequest: pokemon => dispatch(SearchActions.searchRequest(pokemon)),
+  loaderLoadingOn: () => dispatch(LoaderActions.loaderLoadingOn()),
 });
 
 

@@ -71,8 +71,6 @@ class Search extends Component {
         {loading
           ? this.renderLoading()
           : this.renderButton()}
-
-        {error && notify.show('Pokemon not found (probably pokeapi.co is not working!', 'error', 6000)}
       </div>
     );
   }

@@ -60,7 +60,7 @@ class List extends Component {
   renderEmpty = () => (
     <div className="empty">
       <img src={require('assets/images/empty.png')} alt="" />
-      ...Nothing...
+      Find a pokemon and catch!
     </div>
   )
 
@@ -85,11 +85,10 @@ class List extends Component {
     const { typeName, data } = this.props.searchByType;
     const { pokemonsList } = this.props.list;
 
-    console.tron.log(Object.values(pokemonsList));
-
     return (
       <div className="listContainer">
-        {this.renderTitle(typeName)}
+        {(pokemonsList.length > 0 || typeName !== '')
+          && this.renderTitle(typeName)}
         <div className="listItemsContainer">
           {this.props.searchByType.typeName === ''
             ? this.listItems(pokemonsList)

@@ -99,37 +99,27 @@
         background-color: #A28D21; }
       .infosContainer .infosBox .box-row-data .water {
         background-color: #4592C6; }
-    .infosContainer .infosBox .statsContainer {
+    .infosContainer .infosBox .statsContainer2 {
       display: flex;
       flex: 1;
       flex-direction: row;
-      width: 35%;
-      margin-top: 10px; }
-    .infosContainer .infosBox .stats {
-      display: flex;
-      flex: 1;
-      flex-direction: column;
-      padding: 0.25px; }
-    .infosContainer .infosBox .statsLeft {
-      align-items: flex-end; }
-    .infosContainer .infosBox .stats-item-left {
-      text-align: right; }
-    .infosContainer .infosBox .stats-item {
-      color: white;
-      border: 0.5px solid #FFF;
-      width: 100%;
-      padding: 5px;
-      padding-right: 5px;
-      font-size: 14px;
-      background-color: #a8a6a8; }
-    .infosContainer .infosBox .stats-item-left:first-child {
-      border-top-left-radius: 10px; }
-    .infosContainer .infosBox .stats-item-left:last-child {
-      border-bottom-left-radius: 10px; }
-    .infosContainer .infosBox .stats-right {
-      padding-right: 0;
-      padding-left: 5px; }
-    .infosContainer .infosBox .stats-right:first-child {
-      border-top-right-radius: 10px; }
-    .infosContainer .infosBox .stats-right:last-child {
-      border-bottom-right-radius: 10px; }
+      margin-top: 7px;
+      font-family: 'helvetica-neue'; }
+      .infosContainer .infosBox .statsContainer2 .stats-item2 {
+        background-color: #a8a6a8;
+        border: 1px solid #FFF;
+        font-size: 14px; }
+        .infosContainer .infosBox .statsContainer2 .stats-item2 .stats-item-title2 {
+          display: flex;
+          flex: 1;
+          color: #e1f5ff;
+          padding: 5px;
+          padding-right: 7px;
+          padding-left: 7px; }
+        .infosContainer .infosBox .statsContainer2 .stats-item2 .stats-item-value2 {
+          border-top: 1px solid #FFF;
+          padding: 5px;
+          padding-right: 7px;
+          padding-left: 7px;
+          background-color: #ff6565;
+          color: #FFF; }

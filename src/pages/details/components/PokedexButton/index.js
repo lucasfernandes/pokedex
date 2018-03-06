@@ -47,7 +47,7 @@ class PokedexButton extends Component {
     const { id, name, sprites } = this.props.pokemonInfo;
 
     if (action === 'add') {
-      return this.props.addPokemonRequest(id, name, sprites.front_default, false);
+      return this.props.addPokemonRequest(id, name, sprites.front_default);
     }
 
     return this.props.removePokemonRequest(id, name);
@@ -76,8 +76,8 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   pokedexRequest: pokemon => dispatch(PokedexActions.pokedexRequest(pokemon)),
 
-  addPokemonRequest: (id, name, image, favorite) =>
-    dispatch(AddPokemondActions.addPokemonRequest(id, name, image, favorite)),
+  addPokemonRequest: (id, name, image) =>
+    dispatch(AddPokemondActions.addPokemonRequest(id, name, image)),
 
   removePokemonRequest: (id, name) =>
     dispatch(RemovePokemondActions.removePokemonRequest(id, name)),
