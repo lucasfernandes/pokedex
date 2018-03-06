@@ -12,7 +12,8 @@
 - Infinite Scroll on pokemons by type list or something like that
 - Finish evolutions arrow guides (hidden but there)
 
-# This project was created for a challenge with ReactJs and the main libs used:
+# This project was created for a challenge with ReactJs
+and the main libs used are:
 - react-redux
 - redux
 - redux-saga
