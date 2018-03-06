@@ -1,4 +1,5 @@
-# Keep in touch with your know pokemons with pokedex.
+# Keep in touch with your known pokemons with pokedex.
+## And catch as more as you can!
 
 ## Features: 
 - Find a pokemon
