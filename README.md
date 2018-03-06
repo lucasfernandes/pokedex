@@ -12,13 +12,13 @@
 - Infinite Scroll on pokemons by type list or something like that
 - Finish evolutions arrow guides (hidden but there)
 
-## This project was created for a challenge with ReactJs
-# and the main libs used are:
+# This project was created for a challenge with ReactJs
+## and the main libs used are:
 - react-redux
 - redux
 - redux-saga
 - apisauce
 - redux-sauce
 
-# Deployed on: 
+## Deployed on: 
 https://pokedex-challenge.herokuapp.com
